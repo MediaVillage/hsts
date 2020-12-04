@@ -1,0 +1,6 @@
+{
+    "name": "Red-Fern/redferntheme-package",
+    "description": "The Parent theme that all Red Fern Media WordPress projects are built on",
+    "type": "library",
+    "require": {}
+}

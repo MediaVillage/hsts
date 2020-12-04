@@ -1,0 +1,48 @@
+
+//
+// Bootstrap overrites
+// Look in variables before adding overrites
+// --------------------------------------------------
+.form-control {
+	box-shadow:none;
+	&:focus {
+		box-shadow:0 0 20px rgba(28, 30, 38, 0.05);
+	}
+}
+
+
+//
+// Ninja Forms Styling
+// --------------------------------------------------
+.nf-form-wrap {
+
+	// Add bootstrap styling to nf fields
+	.ninja-forms-field {
+		@extend .form-control;
+	}
+
+	// Add bootstrap button styling to nf submit
+	.submit-wrap {
+		margin-top: 20px;
+		.ninja-forms-field {
+			@extend .btn;
+			@extend .btn-primary;
+		}
+	}
+
+	// Fix label spacing
+	.label-above .nf-field-label {
+		margin-top:10px;
+		margin-bottom:5px;
+	}
+
+	// Fix textarea height
+	.nf-field-element textarea {
+		height: 170px;
+	}
+
+	// Make error message font size smaller
+	.nf-error-msg {
+		font-size:$font-size-small;
+	}
+}

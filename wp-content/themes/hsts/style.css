@@ -1,0 +1,183 @@
+/*
+ Theme Name: HSTS
+ Description: The custom theme [Your Theme Name] using the parent theme Twenty Nineteen.
+ Author: [You]
+ Author URI: [Your URL]
+ Template: twentyseventeen
+ Version: 1
+ Text Domain: child-theme
+ */
+   
+
+
+/* MAIN CONTENT CSS */
+
+
+
+.image-row {
+  background-size: cover !important;
+  background-position: center;
+}
+.image-row .filter {
+  padding: 100px 0;
+  background: rgba(255,255,255,0.9);
+}
+
+.content-row.narrow.wpb_text_column {
+  padding: 50px;
+}
+
+.site-content, .page:not(.home) #content {
+  padding: 0 !important;
+}
+
+ .entry-content { 
+  width: 100% !important; 
+}
+
+
+a {
+  box-shadow: none !important;
+  transition: 0.3s !important;
+}
+
+body a {
+  color: #f9cb1f;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+input {
+  color: #000 !important;
+}
+
+
+
+/* E/O MAIN CONTENT CSS */
+
+
+
+
+
+/* RESPONSIVE CODING */
+
+
+
+@media(max-width: 1200px) { 
+  .navigation-top a {
+      font-size: 15px;
+      padding: 0 7px;
+  }
+
+  h1, h2 {
+    font-size: 50px !important;
+  }
+  #rev_slider_2_1_wrapper h2 {
+    line-height: 1.1em !important;
+  }
+  #rev_slider_2_1_wrapper p { 
+    font-size: 21px !important;
+  }
+
+}
+
+@media(max-width: 991px) { 
+
+  #rev_slider_2_1_wrapper h2 {
+    font-size: 40px !important;
+  }
+
+
+}
+
+
+@media(max-width: 767px) { 
+  .site-header {
+      background: #fff;
+      padding: 7px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+  }
+  .site-branding img {
+    max-height: 40px;
+    width: auto;
+  }
+  #rev_slider_2_1_wrapper h2 {
+    font-size: 30px !important;
+    line-height: 1.3em !important;
+  }
+  #rev_slider_2_1_wrapper p {
+    font-size: 18px !important;
+  }
+
+
+
+}
+
+
+
+@media(max-width: 480px) { 
+
+  .content-row, .site-content, .page:not(.home) #content {
+    padding: 40px 0;
+  }
+
+  h1, h2 {
+    font-size: 23px !important;
+  }
+
+  h4 {
+    font-size: 16px !important;
+  }
+  #rev_slider_2_1_wrapper h2 {
+    font-size: 23px !important;
+    line-height: 1.2em !important;
+    margin-bottom: 0 !important; 
+  }
+  #rev_slider_2_1_wrapper p {
+    font-size: 14px !important;
+    margin-bottom: 0 !important; 
+  }  
+  #rev_slider_2_1_wrapper .btn {
+    font-size: 13px !important;
+    padding: 10px 10px !important;
+  }
+
+
+
+}
+
+@media(max-width: 400px) { 
+  h1, h2 {
+    font-size: 23px !important;
+  }
+  #rev_slider_2_1_wrapper h2 {
+    font-size: 18px !important;
+    line-height: 1.1em !important;
+    margin-bottom: 0 !important;
+  }
+  #rev_slider_2_1_wrapper p {
+    font-size: 12px !important;
+    line-height: 1.3em !important;
+    margin-bottom: 0 !important;
+  }  
+  #rev_slider_2_1_wrapper .btn {
+    font-size: 13px !important;
+  }
+
+
+}
+
+/* E/O RESPONSIVE CODING */
+
+
+
+
+
+
+
+

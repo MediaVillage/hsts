@@ -1,0 +1,126 @@
+.button-primary {
+  background-color: #1c1e26;
+  color: #fff;
+  display: inline-block;
+  border-radius: 3px;
+  padding: 10px 25px;
+}
+
+.button-primary:hover, .button-primary:active, .button-primary:focus {
+  background-color: #272a35;
+  color: #fff;
+}
+
+.button-secondary {
+  background-color: #00c1af;
+  color: #fff;
+  display: inline-block;
+  border-radius: 3px;
+  padding: 10px 25px;
+}
+
+.button-secondary:hover, .button-secondary:active, .button-secondary:focus {
+  background-color: #00dbc6;
+  color: #fff;
+}
+
+.button-arrow {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.button-arrow:after {
+  content: "\f178";
+  font-family: "FontAwesome";
+  position: absolute;
+  opacity: 0;
+  margin-left: 15px;
+  -webkit-transform: translate(-20px, 0);
+  transform: translate(-20px, 0);
+  transition: 0.3s;
+}
+
+.button-arrow:hover {
+  padding-left: 40px;
+  padding-right: 60px;
+}
+
+.button-arrow:hover:after {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+}
+
+.button-large {
+  font-size: 18px;
+  padding: 15px 40px;
+}
+
+/*====================================
+=            Login Styles            =
+====================================*/
+body.login {
+  background-color: #1c1e26;
+}
+
+body.login input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
+  /* Change the color to your own background color */
+  -webkit-text-fill-color: #8c8c8c;
+}
+
+body.login input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
+  -webkit-text-fill-color: #8c8c8c;
+}
+
+.login h1 a {
+  background-image: url("../images/logo.png");
+  width: 100%;
+  height: 32px;
+  background-size: auto 32px;
+}
+
+.login form input[type="text"],
+.login form input[type="password"] {
+  background-color: #fff;
+  color: #8c8c8c;
+  border: 1px solid #ccc;
+  height: 45px;
+  padding: 6px 15px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.login .button-primary,
+.wp-core-ui .button-group.button-large .button,
+.wp-core-ui .button.button-large {
+  background-color: #00c1af;
+  color: #fff;
+  display: inline-block;
+  border-radius: 3px;
+  padding: 10px 25px;
+  border: none;
+  height: auto;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  box-shadow: none;
+  text-shadow: none;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.login .button-primary:hover, .login .button-primary:active, .login .button-primary:focus,
+.wp-core-ui .button-group.button-large .button:hover,
+.wp-core-ui .button-group.button-large .button:active,
+.wp-core-ui .button-group.button-large .button:focus,
+.wp-core-ui .button.button-large:hover,
+.wp-core-ui .button.button-large:active,
+.wp-core-ui .button.button-large:focus {
+  background-color: #00dbc6;
+  color: #fff;
+}
+
+/*# sourceMappingURL=login.css.map */

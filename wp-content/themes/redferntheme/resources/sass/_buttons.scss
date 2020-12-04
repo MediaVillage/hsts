@@ -1,0 +1,34 @@
+.button-primary {
+	@include button($brand-primary);
+}
+.button-secondary {
+	@include button($brand-secondary);
+}
+
+.button-arrow {
+	padding-left: 50px;
+	padding-right: 50px;
+	&:after {
+		content: "\f178";
+		font-family: "FontAwesome";
+		position: absolute;
+		opacity: 0;
+		margin-left: 15px;
+		@include translate(-20px, 0);
+		@include transition(0.3s);
+
+	}
+	&:hover {
+		padding-left: 40px;
+		padding-right: 60px;
+		&:after {
+			opacity: 1;
+			transform: none;
+		}
+	}
+}
+
+.button-large {
+	font-size: $font-size-large;
+	padding: 15px 40px;
+}

@@ -1,0 +1,106 @@
+.rf-menu-settings-overlay {
+    background: rgba(0,0,0,0.6);
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+}
+
+.rf-menu-settings {
+    background: #FFF;
+    position: relative;
+    width: 1000px;
+    height: 500px;
+    margin: 30px auto;
+}
+
+.menu-settings-header {
+    border-bottom: 1px solid #E2E2E2;
+    padding: 5px 15px;
+    position: relative;
+}
+
+.menu-settings-close {
+    margin-top: -10px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+}
+
+/** Sidebar **/
+.menu-settings-sidebar {
+    background: #FFF;
+    box-shadow: inset -10px 0px 7px -12px rgba(0,0,0,0.2);
+    float: left;
+    height: 437px;
+    width: 20%;
+}
+
+.menu-settings-sidebar ul {
+    margin: 0;
+}
+
+.menu-settings-sidebar li a {
+    display: block;
+    padding: 13px 20px;
+    text-decoration: none;
+}
+
+.menu-settings-sidebar li.active a {
+    background: blue;
+    color: #FFF;
+}
+
+/** Content **/
+.menu-settings-content {
+    padding: 20px;
+    float: right;
+    height: 437px;
+    width: 80%;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.widgets {
+    float: left;
+    background: #FAFAFA;
+    border: 1px solid #DFDFDF;
+    width: 760px;
+    position: relative;
+    margin-top: 15px;
+    padding: 5px;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 200px;
+}
+
+/** Columns **/
+[data-columns="1"] {
+    width: 100%;
+    float: left;
+}
+
+[data-columns="2"] {
+    width: calc(100% / 2);
+    float: left;
+}
+
+[data-columns="3"] {
+    width: calc(100% / 3);
+    float: left;
+}
+
+[data-columns="4"] {
+    width: calc(100% / 4);
+    float: left;
+}
+
+[data-columns="6"] {
+    width: calc(100% / 6);
+    float: left;
+}

@@ -1,0 +1,158 @@
+/*=========================================================
+ * Off Canvas Animation
+ *=======================================================*/
+#page {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    -webkit-transition: -webkit-transform 500ms ease-in-out;
+    transition: -webkit-transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+
+    &.cart-show {
+        transform: translate3d(-$shop-panel--md-width, 0, 0);
+        #site-navigation {
+            box-shadow: 0px 0 67px 0 rgba(20, 20, 20, 0.3);
+
+            > * {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+/*--------------------------------------------------------------
+# Shop Side Panel
+--------------------------------------------------------------*/
+
+.shop-overlay {
+  background: $shop-panel-overlay--bg;
+  bottom: 0;
+  content: " ";
+  height: 1px;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  top: -1px;
+  transition: opacity 0.5s ease;
+  visibility: hidden;
+  width: 1px;
+  z-index: 1000;
+  &.show {
+    visibility: visible;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+}
+.shop-panel {
+  @media (min-width: 500px) {
+    width: $shop-panel--md-width;
+  }
+  background: $shop-panel--bg-color;
+  height: 100%;
+  position: fixed;
+  right: -$shop-panel--md-width;
+  top: 0;
+  width: 100%;
+  z-index: 1001;
+  transition: transform 0.5s ease-in-out;
+  .shop-panel__inner {
+    width: auto;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    .shop-panel__header {
+      padding: 0 1.5rem 0;
+      margin-bottom: 1.5rem;
+      background: $shop-panel--header--bg-color;
+      z-index: 10;
+      @include absolute(0,0, auto, 0);
+      .shop-panel__header_inner {
+        @extend h5;
+      }
+      a.shop-panel-close {
+        float: right;
+        color: $headings-color;
+      }
+    }
+    .shop-panel__footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 102;
+      background: $shop-panel--footer--bg-color;
+      padding: 1.5rem 1.5rem 4.5rem 1.5rem;
+      span.total-amount {
+        font-weight: normal;
+      }
+      .shop-panel__total {
+        padding: 1.5rem 0;
+        border-bottom: 1px solid $shop-panel-total--border-bg;
+        margin-bottom: 10px;
+        text-align: center;
+        color:$headings-color;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+      .shop-panel__buttons {
+        text-align: center;
+      }
+    }
+    .shop-panel__products {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      padding: 4.5rem 1.5rem 290px 1.5rem;
+      overflow-y: scroll;
+    }
+    .shop-panel__product {
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid #efefef;
+      @include clearfix;
+    
+      .cart-item__cell.checkout-item__img {
+        width: calc(3rem + 15px);
+      }
+      .checkout-item__header {
+        strong {
+          color:$headings-color;
+        }
+      }
+      .checkout-item__meta {
+        font-size: 0.8rem;
+        span {
+          color:$headings-color;
+        }
+      }
+      .remove-product {
+        color:$brand-secondary;
+        font-size: 0.8rem;
+      }
+    }
+  }
+  body.admin-bar & {
+    top: 32px;
+  }
+  .shop-overlay.show + & {
+    transform: translate3d(-$shop-panel--md-width, 0, 0);
+  }
+
+}
+
+.shop-panel__products__empty {
+  display: none;
+  .shop-panel__products &:first-child {
+    display: block;
+  }
+}

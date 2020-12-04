@@ -1,0 +1,106 @@
+
+.site-header {
+  background: #fff;
+  z-index: 2; 
+  padding: 10px 0;
+  display: none;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+ 
+  * {
+    box-shadow: none !important;
+  }
+
+  .site-branding {
+      img {
+        max-width: 125px;
+      } 
+  }
+
+  .main-navigation {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+
+    a {
+      color: #000;
+      padding: 0 15px;
+      &:hover {
+        color: #ebc559;
+      }
+    }
+
+  }
+
+  .header-right { 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;  
+
+    .widget {
+      margin-left: 20px;
+      padding-bottom: 0;
+    }
+
+    button {
+      margin-left: 20px !important;
+      position: static !important;
+    }
+
+    .btn {  
+      background: #fff !important;
+      color: #f9cb1f !important;
+      &:hover {
+        background: #f9cb1f !important;
+        color: #fff;
+      }
+    }
+
+    .fal, .far {
+      color: #18A5B4;
+      font-size: 18px;
+      vertical-align: middle;
+    }  
+
+  }
+
+
+} 
+
+
+#menu-main-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    background: #89CA39;
+}
+#menu-main-menu li {
+  margin-left: 20px;
+  margin-right: 20px;
+  border: none;
+}
+#menu-main-menu li a {
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.vc_wp_custommenu {
+  margin-bottom: 0;
+}
+.vc_wp_custommenu .widget {
+  padding: 0;
+}
+
+
+
+
+
+
+
+
+

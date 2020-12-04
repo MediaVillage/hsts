@@ -1,0 +1,59 @@
+@import 'variables';
+@import 'mixins';
+@import 'buttons';
+
+/*====================================
+=            Login Styles            =
+====================================*/
+body.login {
+	background-color: $login-screen--body-bg;
+
+	  input:-webkit-autofill {
+	      -webkit-box-shadow:0 0 0 1000px $input-bg inset; /* Change the color to your own background color */
+	      -webkit-text-fill-color: $login-screen--input-color;
+	  }
+
+	  input:-webkit-autofill:focus {
+	      -webkit-box-shadow: 0 0 0 1000px $input-bg inset;
+	      -webkit-text-fill-color: $login-screen--input-color;
+	  } 
+
+}
+.login h1 a {
+  background-image: url($login-screen--logo-path);
+  width: 100%;
+  height: $login-screen--logo-height;
+  background-size: auto $login-screen--logo-height;
+}
+.login form {
+
+	input[type="text"],
+	input[type="password"] {
+		background-color: $login-screen--input-bg;
+		color: $login-screen--input-color;
+		border: $login-screen--input-border;
+		height: 45px;
+		padding: 6px 15px;
+		margin-top: 8px;
+		font-size: 14px;
+		font-weight: normal;
+
+	}
+
+}
+
+.login .button-primary,
+.wp-core-ui .button-group.button-large .button,
+.wp-core-ui .button.button-large {
+	@include button($brand-secondary);
+	border: none;
+	height: auto;
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+	box-shadow: none;
+	text-shadow:none;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+

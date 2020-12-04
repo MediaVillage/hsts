@@ -1,0 +1,27 @@
+/*
+Theme Name: Higher Safety
+Template: redferntheme
+Author: Red Fern
+Author URI: http://www.red-fern.co.uk
+Description: Higher Safety inherited from RedFernTheme
+Version: 1.0.0
+License: CC BY-NC-ND 3.0
+License URI: https://creativecommons.org/licenses/by-nc-nd/3.0/
+Text Domain: Higher Safety
+*/
+
+@import "variables";
+
+// Load the core parent stylesheet
+@import "../../../redferntheme/resources/sass/core";
+
+
+@import 'header';
+@import 'footer';
+@import 'forms';
+@import 'general';
+@import 'layout';
+@import 'typography';
+@import 'animation';
+@import 'buttons';
+@import 'revslider';

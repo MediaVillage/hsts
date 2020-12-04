@@ -1,0 +1,44 @@
+
+
+.site-footer {
+  background: transparent;
+  color: #000;
+  padding: 60px 0;
+  font-size: 13px;
+  	.container {
+	  display: flex;
+	  justify-content: space-between;
+	  padding: 0;
+	}
+
+  	a {
+		  color: $secondary-color;
+		  font-weight: bold;
+		  font-family: 'nexa_boldregular';
+	  }
+
+	h4.widget-title {
+	  font-size: 14px;
+	  color: $secondary-color;
+	  text-transform: uppercase;
+	  font-family: 'nexa_boldregular';
+	}
+
+	li {
+  		border: none !important;
+	}
+
+
+    .social-icons {
+		display: flex;
+		.social-platform {
+		  margin-right: 15px;
+		  font-size: 25px;
+		}
+	  }
+
+}
+
+
+
+
