@@ -1,20 +1,17 @@
 .btn {
-  background: #89CA39 !important;
-  color: #fff !important;
+  background: #89CA39;
+  color: #fff;
   text-transform: uppercase;
-  padding: 15px 25px !important;
-  box-shadow: none !important;
-  transition: 0.3s !important;
-  box-shadow: none !important;
-  border: none !important;
-  border-radius: 5px !important;
+  padding: 15px 25px;
+  transition: 0.3s;
+  box-shadow: none;
+  border-radius: 0px;
   letter-spacing: 2px;
-  font-weight: 600 !important;
   width: 100%;
 
   &:hover {
-    background: #62c84d !important;
-    color: #fff !important;
+    background: #62c84d;
+    color: #fff;
   }
 }
 

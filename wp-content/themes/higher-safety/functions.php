@@ -66,3 +66,15 @@ if ( ! function_exists('rftheme_widgets_init') ) {
     }
 }
 add_action( 'widgets_init', 'rftheme_widgets_init' );
+
+
+
+
+add_action( 'after_setup_theme', 'ab_after_setup' );
+/**
+ * Add theme setup and custom image sizes
+ */
+function ab_after_setup()
+{
+    add_image_size( 'blog_thumb', 400, 250, true );
+}

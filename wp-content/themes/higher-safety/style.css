@@ -11613,16 +11613,14 @@ img.right {
 }
 
 body {
-  font-size: 15px !important;
+  font-size: 16px !important;
   font-family: "nexa_lightregular";
+  color: #000;
 }
 @media (max-width: 480px) {
   body {
     font-size: 13px;
   }
-}
-body p {
-  line-height: 1.6rem;
 }
 body a {
   color: #4baa44;
@@ -11636,7 +11634,7 @@ body h1 {
   font-weight: bold;
 }
 body h2 {
-  font-size: 40px !important;
+  font-size: 40px;
   font-weight: bold;
 }
 body h3 {
@@ -11701,22 +11699,19 @@ body ul.ticks li:before {
 }
 
 .btn, .nf-form-wrap .submit-wrap .ninja-forms-field {
-  background: #89CA39 !important;
-  color: #fff !important;
+  background: #89CA39;
+  color: #fff;
   text-transform: uppercase;
-  padding: 15px 25px !important;
-  box-shadow: none !important;
-  transition: 0.3s !important;
-  box-shadow: none !important;
-  border: none !important;
-  border-radius: 5px !important;
+  padding: 15px 25px;
+  transition: 0.3s;
+  box-shadow: none;
+  border-radius: 0px;
   letter-spacing: 2px;
-  font-weight: 600 !important;
   width: 100%;
 }
 .btn:hover, .nf-form-wrap .submit-wrap .ninja-forms-field:hover {
-  background: #62c84d !important;
-  color: #fff !important;
+  background: #62c84d;
+  color: #fff;
 }
 
 rs-slides h1, rs-slides h2 {
@@ -11746,4 +11741,45 @@ rs-slides p {
 rs-slides .btn, rs-slides .nf-form-wrap .submit-wrap .ninja-forms-field, .nf-form-wrap .submit-wrap rs-slides .ninja-forms-field {
   font-size: 18px;
   padding: 10px 20px;
+}
+
+.course-menu .course-menu-title {
+  background: #0a1954;
+  padding: 20px 15px;
+}
+.course-menu .course-menu-title h2 {
+  color: #fff;
+  margin-top: 0;
+  font-size: 25px;
+}
+.course-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+.course-menu ul a {
+  background: #69a150;
+  background: linear-gradient(0deg, #69a150 0%, #7bae53 100%);
+  display: block;
+  padding: 15px;
+  color: #fff;
+  font-size: 18px;
+  font-family: "nexa_boldregular";
+}
+
+.RFPostList.Blog {
+  display: flex;
+  justify-content: space-between;
+}
+.RFPostList.Blog .RFPostList__item {
+  width: 31%;
+}
+.RFPostList.Blog .RFPostList__item h3 {
+  color: #262262;
+  font-size: 28px;
+  margin: 15px 0;
+}
+.RFPostList.Blog .RFPostList__item .btn, .RFPostList.Blog .RFPostList__item .nf-form-wrap .submit-wrap .ninja-forms-field, .nf-form-wrap .submit-wrap .RFPostList.Blog .RFPostList__item .ninja-forms-field {
+  background: transparent;
+  border: 2px solid #4baa44;
+  color: #4baa44;
 }

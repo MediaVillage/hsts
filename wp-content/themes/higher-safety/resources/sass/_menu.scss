@@ -1,0 +1,29 @@
+
+
+.course-menu {
+
+    .course-menu-title  {
+        background: #0a1954;
+        padding: 20px 15px;
+        h2 {
+            color: #fff;
+            margin-top: 0;
+            font-size: 25px;
+        }
+        
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        a {
+            background: rgb(105,161,80);
+            background: linear-gradient(0deg, rgba(105,161,80,1) 0%, rgba(123,174,83,1) 100%);
+            display: block;
+            padding: 15px;
+            color: #fff;
+            font-size: 18px;
+            font-family: 'nexa_boldregular';
+        }
+    }
+}
