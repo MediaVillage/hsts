@@ -1,14 +1,59 @@
 
+.accreditations {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding-top: 30px !important;
+	padding-bottom: 30px !important;
+	padding-left: 40px;
+	padding-right: 40px; 
+	border-bottom: 2px solid #d1d2d4;
+
+	.widget {
+		padding: 15px;
+		max-width: 100px;
+	}
+}
+
+
+
+.site-footer ul.menu li.current-menu-item a {
+    color: $secondary-color;
+}
 
 .site-footer {
   background: transparent;
   color: #000;
   padding: 60px 0;
-  font-size: 13px;
+  font-size: 16px;
   	.container {
 	  display: flex;
 	  justify-content: space-between;
 	  padding: 0;
+	}
+
+	a:hover {
+		color: $primary-color;
+	}
+
+	.footer-1 {
+		font-size: 13px;
+
+		img {
+			max-width: 200px !important;
+			height: auto !important;
+		}
+	}
+
+	.footer-2 {
+		font-size: 13px;
+	}
+
+	.footer-4 {
+		input {
+			text-align: center;
+		}
 	}
 
   	a {

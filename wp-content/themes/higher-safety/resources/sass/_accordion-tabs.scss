@@ -1,0 +1,51 @@
+
+
+
+.vc_tta.vc_general .vc_tta-panel {
+    margin-bottom: 10px;
+}
+
+.vc_tta-panel-heading {
+    background-color: $secondary-color !important;
+    border-radius: 0 !important; 
+}
+
+.vc_tta-panel.vc_active .vc_tta-panel-heading {
+    background-color: $secondary-color !important;
+}
+
+.vc_tta-panel-heading a {
+    color: #fff !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    padding-right: 80px !important;
+    font-size: 19px;
+    line-height: 1.4em;
+
+    i {
+        &:before, &:after {
+            border-color: #fff !important;
+        }
+    }
+}
+
+.vc_tta-panel-body {
+    background: transparent !important;
+    border: none !important;
+    padding: 20px !important;
+}
+
+.vc_tta .vc_tta-controls-icon {
+    height: 20px !important;
+    width: 20px !important;
+}
+
+
+.vc_tta.vc_tta-accordion .vc_tta-controls-icon-position-right .vc_tta-controls-icon {
+    right: 35px !important;
+}
+
+.wpb-js-composer .vc_tta.vc_tta-accordion .vc_tta-controls-icon-position-left .vc_tta-controls-icon {
+    left: auto !important;
+    right: 20px !important;
+}

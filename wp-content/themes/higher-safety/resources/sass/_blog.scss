@@ -2,8 +2,10 @@
 .RFPostList.Blog {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     .RFPostList__item {
-        width: 31%;
+        width: 48%;
+        margin-bottom: 50px;
 
         h3 {
             color: $secondary-color;
@@ -16,6 +18,34 @@
             border: 2px solid $primary-color;
             color: $primary-color;
 
+            &:hover {
+                border: 2px solid $secondary-color;
+                color: $secondary-color;
+            }
+
         }
     } 
+}
+
+
+.home .RFPostList.Blog .RFPostList__item {
+    width: 31%;
+    margin-bottom: 0;
+}
+
+.single {
+        
+    #page .entry-header {
+        padding-top: 0;
+    }
+
+    .entry-meta {
+        pointer-events: none;
+        font-family: 'nexa_boldregular';
+        margin: 20px 0;
+    }
+
+    .byline {
+        display: none;
+    }
 }

@@ -23,6 +23,14 @@ $rs_global_settings		 = $rsaf->get_global_settings();
 $rs_notices				 = $rsaf->add_notices();
 $rs_color_picker_presets = RSColorpicker::get_color_presets();
 $rs_compression			 = $rsaf->compression_settings();
+$rs_backend_fonts		 = $rsaf->get_font_familys();
+$rs_new_addon_counter	 = get_option('rs-addons-counter', false);
+$rs_new_addon_counter	 = ($rs_new_addon_counter === false) ? count($rs_addons) : $rs_new_addon_counter;
+$rs_new_temp_counter	 = get_option('rs-templates-counter', false);
+if($rs_new_temp_counter === false){
+	$_rs_tmplts			 = get_option('rs-templates', array());
+	$rs_new_temp_counter = (isset($_rs_tmplts['slider'])) ? count($_rs_tmplts['slider']) : $rs_new_temp_counter;
+}
 $rs_global_sizes		 = array(
 	'd' => $rsaf->get_val($rs_global_settings, array('size', 'desktop'), '1240'),
 	'n' => $rsaf->get_val($rs_global_settings, array('size', 'notebook'), '1024'),
@@ -40,12 +48,12 @@ if(version_compare(RS_REVISION, $rs_show_updated, '>')){
 	window.RVS = window.RVS === undefined ? {F:{}, C:{}, ENV:{}, LIB:{}, V:{}, S:{}, DOC:jQuery(document), WIN:jQuery(window)} : window.RVS;
 	
 	RVS.LIB.ADDONS			= RVS.LIB.ADDONS === undefined ? {} : RVS.LIB.ADDONS;	
-	RVS.LIB.ADDONS			= jQuery.extend(true,RVS.LIB.ADDONS,<?php echo (!empty($rs_addons)) ? 'jQuery.parseJSON('.$rsaf->json_encode_client_side($rs_addons).')' : '{}'; ?>);	
-	RVS.LIB.OBJ 			= {types: jQuery.parseJSON(<?php echo $rsaf->json_encode_client_side($rsa); ?>)};
+	RVS.LIB.ADDONS			= jQuery.extend(true,RVS.LIB.ADDONS,<?php echo (!empty($rs_addons)) ? 'JSON.parse('.$rsaf->json_encode_client_side($rs_addons).')' : '{}'; ?>);	
+	RVS.LIB.OBJ 			= {types: <?php echo (empty($rsa)) ? '{}' : 'JSON.parse('. $rsaf->json_encode_client_side($rsa).')'; ?>};
 	RVS.LIB.SLIDERS			= <?php echo json_encode(RevSliderSlider::get_sliders_short_list()); ?>;
-	RVS.LIB.COLOR_PRESETS	= <?php echo (!empty($rs_color_picker_presets)) ? 'jQuery.parseJSON('. $rsaf->json_encode_client_side($rs_color_picker_presets) .')' : '{}'; ?>;
+	RVS.LIB.COLOR_PRESETS	= <?php echo (!empty($rs_color_picker_presets)) ? 'JSON.parse('. $rsaf->json_encode_client_side($rs_color_picker_presets) .')' : '{}'; ?>;
 
-	RVS.ENV.addOns_to_update = <?php echo (!empty($rs_addon_update)) ? 'jQuery.parseJSON('.$rsaf->json_encode_client_side($rs_addon_update).')' : '{}'; ?>;
+	RVS.ENV.addOns_to_update = <?php echo (!empty($rs_addon_update)) ? 'JSON.parse('.$rsaf->json_encode_client_side($rs_addon_update).')' : '{}'; ?>;
 	RVS.ENV.activated		= '<?php echo (get_option('revslider-valid', 'false')) == 'true' ? 'true' : 'false'; ?>';
 	RVS.ENV.activated		= RVS.ENV.activated == 'true' || RVS.ENV.activated == true ? true : false;
 	RVS.ENV.nonce			= '<?php echo wp_create_nonce('revslider_actions'); ?>';
@@ -59,7 +67,7 @@ if(version_compare(RS_REVISION, $rs_show_updated, '>')){
 	RVS.ENV.updated			= <?php echo (version_compare(RS_REVISION, $rs_show_updated, '>')) ? 'true' : 'false'; ?>;
 	RVS.ENV.latest_version	= '<?php echo get_option('revslider-latest-version', RS_REVISION); ?>';	
 	RVS.ENV.php_version		= '<?php echo phpversion(); ?>';
-	RVS.ENV.output_compress	= <?php echo (!empty($rs_compression)) ? 'jQuery.parseJSON('. $rsaf->json_encode_client_side($rs_compression) .')' : '[]'; ?>;
+	RVS.ENV.output_compress	= <?php echo (!empty($rs_compression)) ? 'JSON.parse('. $rsaf->json_encode_client_side($rs_compression) .')' : '[]'; ?>;
 	RVS.ENV.placeholder		= {
 		date_format:		'<?php echo $rs_wp_date_format; ?>',
 		time_format:		'<?php echo $rs_wp_time_format; ?>',
@@ -87,20 +95,33 @@ if(version_compare(RS_REVISION, $rs_show_updated, '>')){
 		?>date:				'<?php echo date($rs_wp_date_format); ?>',
 		date_modified:		'<?php echo date($rs_wp_date_format); ?>'
 	};
-	RVS.ENV.glb_slizes		= jQuery.parseJSON(<?php echo $rsaf->json_encode_client_side($rs_global_sizes); ?>);
-	RVS.ENV.img_sizes		= jQuery.parseJSON(<?php echo $rsaf->json_encode_client_side($rs_added_image_sizes); ?>);
+	RVS.ENV.glb_slizes		= JSON.parse(<?php echo $rsaf->json_encode_client_side($rs_global_sizes); ?>);
+	RVS.ENV.img_sizes		= JSON.parse(<?php echo $rsaf->json_encode_client_side($rs_added_image_sizes); ?>);
 	RVS.ENV.create_img_meta	= <?php echo (!empty($rs_image_meta_todo)) ? 'true' : 'false'; ?>;
-	RVS.ENV.notices			= <?php echo (!empty($rs_notices)) ? 'jQuery.parseJSON('. $rsaf->json_encode_client_side($rs_notices) .')' : '[]'; ?>;
+	RVS.ENV.notices			= <?php echo (!empty($rs_notices)) ? 'JSON.parse('. $rsaf->json_encode_client_side($rs_notices) .')' : '[]'; ?>;
+	RVS.ENV.selling			= <?php echo ($rsaf->get_addition('selling') === true) ? 'true' : 'false'; ?>;
+	RVS.ENV.newAddonsAmount = '<?php echo $rs_new_addon_counter; ?>';
+	RVS.ENV.newTemplatesAmount = '<?php echo $rs_new_temp_counter; ?>';
+	
 	<?php
 	if($rs_slider_update_needed == true){
 	?>
 	var RS_DO_SILENT_SLIDER_UPDATE = <?php echo ($rs_slider_update_needed == true) ? 'true' : 'false'; ?>;
 	
 	if(RS_DO_SILENT_SLIDER_UPDATE === true){
-		//push request to update slider for slider until finished
-		jQuery(document).ready(function(){
+		//push request to update slider for slider until finished		
+		var rs_do_silent_update_once = false
+		if (document.readyState === "loading") 
+			document.addEventListener('readystatechange',function(){
+				if ((document.readyState === "interactive" || document.readyState === "complete") && !rs_do_silent_update_once) {
+					rs_do_silent_update_once = true;
+					rs_do_silent_update();
+				}
+			});
+		else {
+			rs_do_silent_update_once = true;
 			rs_do_silent_update();
-		});
+		}		
 	}
 	
 	function rs_do_silent_update(){
@@ -118,6 +139,17 @@ if(version_compare(RS_REVISION, $rs_show_updated, '>')){
 </script>
 <?php
 do_action('revslider_header_content', $rsaf);
+?>
+
+<?php
+//add custom fonts that have backend set to true
+if(!empty($rs_backend_fonts)){
+	foreach($rs_backend_fonts as $rs_bf){
+		if($rs_bf['type'] === 'custom' && isset($rs_bf['url']) && isset($rs_bf['backend']) && $rs_bf['backend'] === true){
+			echo '<link href="'.esc_html($rs_bf['url']).'" rel="stylesheet" property="stylesheet" media="all" type="text/css" >'."\n";
+		}
+	}
+}
 ?>
 
 <?php

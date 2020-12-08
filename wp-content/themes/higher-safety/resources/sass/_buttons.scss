@@ -1,5 +1,5 @@
 .btn {
-  background: #89CA39;
+  background: $primary-color;
   color: #fff;
   text-transform: uppercase;
   padding: 15px 25px;
@@ -8,6 +8,7 @@
   border-radius: 0px;
   letter-spacing: 2px;
   width: 100%;
+  font-family: 'nexa_boldregular';
 
   &:hover {
     background: #62c84d;

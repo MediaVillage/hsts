@@ -14,10 +14,14 @@
 	</div><!-- #content -->
 
 
-
+		<div class="accreditations content-row narrow">
+			<?php dynamic_sidebar( 'accreditations' ); ?>
+		</div>
 
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
+
+		
 		<div class="container">
 			
 			<div class="footer-main">

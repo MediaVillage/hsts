@@ -408,14 +408,7 @@ if(!defined('ABSPATH')) exit();
 	<!-- LAYER POSITION CONTAINER -->
 	<div class="form_collector layer_settings_collector" data-type="layersconfig" data-pcontainer="#layer_settings" data-offset="#rev_builder_wrapper">
 		<div id="form_layer_position"  class="formcontainer form_menu_inside collapsed" data-select="#gst_layer_2" data-unselect=".layer_submodule_trigger">			
-			<div class="form_inner open _shfc_ _nsfr_ _nsfa_ _nsft_ _nsfb_ _nsfsvg_">
-				<div class="collapsable">
-					<row class="direktrow">
-							<labelhalf><i class="material-icons vmi">sms_failed</i></labelhalf>
-							<contenthalf><div class="function_info"><?php _e('No options available for your current selection.', 'revslider');?></div></contenthalf>
-						</row>
-				</div>
-			</div>
+			
 
 			<!-- LAYER POSITION basic -->
 			<div id="form_layerposition_basic" class="form_inner open _nsfc_">
@@ -426,7 +419,7 @@ if(!defined('ABSPATH')) exit();
 						<select style="display:none !important" id="layer_pos_halign" data-unselect=".layer_hor_selector" data-select="#layer_hor_*val*" class="layerinput easyinit" data-responsive="true" data-r="position.horizontal.#size#.v" data-triggerinp="#layer_pos_x" data-triggerinpval="0"><option value="left"><?php _e('Left', 'revslider');?></option><option value="center"><?php _e('Center', 'revslider');?></option><option value="right"><?php _e('Right', 'revslider');?></option></select>
 						<select style="display:none !important" id="layer_pos_valign" data-unselect=".layer_ver_selector" data-select="#layer_ver_*val*" class="layerinput easyinit" data-responsive="true" data-r="position.vertical.#size#.v" data-triggerinp="#layer_pos_y" data-triggerinpval="0"><option value="top"><?php _e('Top', 'revslider');?></option><option value="middle"><?php _e('Center', 'revslider');?></option><option value="bottom"><?php _e('Bottom', 'revslider');?></option></select>
 						<row>
-							<onelabel><label_a><?php _e('Aligment', 'revslider');?></label_a></onelabel>
+							<onelabel><label_a><?php _e('Alignment', 'revslider');?></label_a></onelabel>
 							<oneshort><label_icon class="triggerselect ui_leftalign layer_hor_selector" data-select="#layer_pos_halign" data-val="left" id="layer_hor_left"></label_icon><label_icon class="triggerselect ui_centeralign layer_hor_selector" data-select="#layer_pos_halign" data-val="center" id="layer_hor_center"></label_icon><label_icon class="triggerselect ui_rightalign layer_hor_selector" data-select="#layer_pos_halign" data-val="right" id="layer_hor_right"></label_icon></oneshort>
 							<oneshort class="lp10"><label_icon class="triggerselect ui_topalign layer_ver_selector" data-select="#layer_pos_valign" data-val="top" id="layer_ver_top"></label_icon><label_icon class="triggerselect ui_middlealign layer_ver_selector" data-select="#layer_pos_valign" data-val="middle" id="layer_ver_middle"></label_icon><label_icon class="triggerselect ui_bottomalign layer_ver_selector" data-select="#layer_pos_valign" data-val="bottom" id="layer_ver_bottom"></label_icon></oneshort>
 						</row>
@@ -573,11 +566,11 @@ if(!defined('ABSPATH')) exit();
 			<!-- LAYER STYLE BACKGROUND -->
 			<div id="form_layerstyle_bg" class="form_inner open _nsfv_">
 				<div class="form_inner_header"><i class="material-icons">color_lens</i><?php _e('Background', 'revslider');?></div>
-				<div class="collapsable">
+				<div class="collapsable">					
 					<div class="__idle__"><label_a><?php _e('BG Color', 'revslider');?></label_a><input type="text" data-editing="Layer BG Color" name="layerBGColor" id="layerBGColor" class="my-color-field layerinput easyinit" data-visible="true" data-r="idle.backgroundColor" value="transparent"></div>
 					<div class="_ltsel_bgcolor"><label_a><?php _e('BG in Frame', 'revslider');?></label_a><input type="text" data-editing="Frame BG Color Animation" name="frameBGColorAnimationDouble" id="frameBGColorAnimationDouble" class="my-color-field layerinput easyinit" data-visible="true" data-r="#frame#.bgcolor.backgroundColor" value="transparent"></div>
 					<div class="div15"></div>
-					<row class="direktrow __idle__ _nsfi_ _nsfv_">
+					<row class="direktrow __idle__ _nsfi_ _nsfv_">						
 						<onelong><label_a><?php _e('BG Image', 'revslider');?></label_a><div class="miniprevimage_wrap"><i class="material-icons">filter_hdr</i><div id="layer_bg_image" data-showadvbg="#layer_bg_adv_settings"></div><div data-evt="updatelayerbgimage" data-r="idle.backgroundImage" data-rid="idle.backgroundImageId" data-lib="idle.bgimagelib" data-default="" class="resettodefault basic_action_button callEventButton layerinput onlyicon"><i class="material-icons">close</i></div></div></onelong>
 						<oneshort>
 							<div data-evt="updatelayerbgimage" data-r="idle.backgroundImage" data-rid="idle.backgroundImageId" data-lib="idle.bgimagelib" data-sty="behavior.imageSourceType" class="getImageFromMediaLibrary basic_action_button callEventButton layerinput"><i class="material-icons">style</i><?php _e('Media', 'revslider');?></div>
@@ -585,11 +578,18 @@ if(!defined('ABSPATH')) exit();
 						</oneshort>
 					</row>
 
+
 					<!-- USED LIBRARY TYPE-->
 					<div style="display:none"><label_a class="singlerow"><?php _e('Used Library', 'revslider');?></label_a><select class="layerinput easyinit" data-r="idle.bgimagelib" data-show="#layerbg_srctype_*val*" data-hide=".layerbg_srctype_all" data-showprio="show"><option value="">Nothing</option><option value="objectlibrary">Objectlibrary</option><option value="medialibrary">MediaLibrary</option></select></div>
+
 					<!-- SIZE / SRC PICKER FOR CURRENT USED LIBRARY TYPE-->
 					<div id="layerbg_srctype_objectlibrary" class="layerbg_srctype_all"><label_a class="singlerow"><?php _e('Image Size', 'revslider');?></label_a><select class="layerinput tos2 nosearchbox easyinit" data-evt="getNewImageSize" data-evtparam="bg.object" data-r="behavior.imageSourceType"><option value="100" selected="selected"><?php _e("Original", 'revslider');?></option><option value="75" selected="selected"><?php _e("Large", 'revslider');?></option><option value="50" selected="selected"><?php _e("Medium", 'revslider');?></option><option value="25" selected="selected"><?php _e("Small", 'revslider');?></option><option value="10" selected="selected"><?php _e("Extra Small", 'revslider');?></option></select></div>
 					<div id="layerbg_srctype_medialibrary" class="layerbg_srctype_all"><label_a class="singlerow"><?php _e('Source Type', 'revslider');?></label_a><select class="layerinput tos2 nosearchbox easyinit" data-evt="getNewImageSize" data-evtparam="bg.media" data-r="behavior.imageSourceType"><option value="auto" selected="selected"><?php _e("Default Setting", 'revslider');?></option><?php foreach ($img_sizes as $imghandle => $imgSize) { echo '<option value="' . $imghandle . '">' . $imgSize . '</option>';}?></select></div>
+
+					
+									
+
+
 
 
 					<div id="layer_bg_adv_settings">
@@ -623,8 +623,14 @@ if(!defined('ABSPATH')) exit();
 								<div class="bgIdleSize_pixel bgIdleSize_perpix"><label_a>PX</label_a><input class="layerinput valueduekeyboard smallinput easyinit" data-allowed=""  data-responsive="false" data-numeric="true" data-r="idle.backgroundSizePix" data-min="0" data-max="2000" type="text"></div>
 							</oneshort>
 						</row>
-
 					</div>
+					<!-- STREAM BASED IMAGE BG -->
+					<div class="__idle__ _nsfi_ _nsfv_">						
+						<div class="div25"></div>
+						<longoption><i class="material-icons">language</i><label_a ><?php _e('Image from Stream if exist', 'revslider');?></label_a><input type="checkbox" class="easyinit layerinput callEvent" data-showhide="#layerbg_srctype_streamlibrary" data-showhidedep="true" data-evt="updatelayerbgimage" data-r="idle.bgFromStream"></longoption>
+						<div class="div5"></div>
+						<div id="layerbg_srctype_streamlibrary"><label_a class="singlerow"><?php _e('Stream Size', 'revslider');?></label_a><select class="layerinput tos2 nosearchbox easyinit"  data-r="behavior.streamSourceType"><option value="auto" selected="selected"><?php _e("Default Setting", 'revslider');?></option><?php foreach ($img_sizes as $imghandle => $imgSize) { echo '<option value="' . $imghandle . '">' . $imgSize . '</option>';}?></select></div>						
+					</div>	
 				</div>
 			</div>
 
@@ -715,7 +721,7 @@ if(!defined('ABSPATH')) exit();
 						<onelong><label_icon class="ui_rotatez"></label_icon><input  class="layerinput valueduekeyboard smallinput easyinit" data-numeric="true" data-allowed="deg" data-r="idle.rotationZ" data-min="-3600" data-max="3600" type="text"></onelong>
 						<oneshort><label_icon class="ui_opacity"></label_icon><input  class="layerinput valueduekeyboard smallinput easyinit" data-numeric="true" data-allowed="" data-r="idle.opacity" data-min="0" data-max="1" data-steps="0.05" type="text"></oneshort>
 					</row>
-
+					
 				</div>
 			</div><!-- END OF BOX SHADOW SETTING -->
 
@@ -1004,24 +1010,25 @@ if(!defined('ABSPATH')) exit();
 						</row>
 						<row class="direktrow">
 							<onelong><label_icon class="ui_origoz"></label_icon><input class="layerinput valueduekeyboard smallinput easyinit" data-numeric="true" data-allowed="px,%" data-r="hover.originZ" data-min="-3600" data-max="3600" type="text"></onelong>
-							<oneshort><label_icon class="ui_perspective"></label_icon><input id="le_frame_hover_perspective" class="layerinput valueduekeyboard smallinput easyinit" data-numeric="true" data-allowed="px" data-r="hover.transformPerspective" type="text"></oneshort>
+							<oneshort><div class="global_perspective_settings global_perspecitve_local_settings"><label_icon class="ui_perspective"></label_icon><input id="le_frame_hover_perspective" class="layerinput valueduekeyboard smallinput easyinit" data-numeric="true" data-allowed="px" data-r="hover.transformPerspective" type="text"></div></oneshort>
 						</row>
 						<label_a><?php _e('Mask', 'revslider');?></label_a><input type="checkbox" id="layer_usehovermask" class="layerinput easyinit" data-r="hover.usehovermask"/>
 					</div>
 				</div>
 
 				<!-- LAYER HOVER STYLE TEXT -->
-				<div class="form_inner open _shft_">
+				<div class="form_inner open">
 					<div class="form_inner_header"><i class="material-icons">title</i><?php _e('Style', 'revslider');?></div>
 					<div class="collapsable">
-						
-						<!-- TEXT HOVER STYLE -->
-						<label_a><?php _e('Text Color', 'revslider');?></label_a><input type="text" data-editing="Layer Hover Text Color" data-mode="single" name="layerTextColorHover" id="layerTextColorHover" class="my-color-field layerinput easyinit" data-visible="true" data-r="hover.color" value="transparent">
-						<div class="div5"></div>
-						<row class="directrow">
-							<onelong><label_icon class="ui_textdecoration"></label_icon><select id="layer_textdecoration_hover" class="layerinput tos2 nosearchbox easyinit" data-r="hover.textDecoration"><option selected="selected" value="none">None</option><option value="underline"><?php _e('Underline', 'revslider');?></option><option value="overline"><?php _e('Overline', 'revslider');?></option><option value="line-through"><?php _e('Line-through', 'revslider');?></option></select></onelong>
-							<oneshort></oneshort>
-						</row>
+						<div class="_shft_ _shfb_ _shoft_ _shofb_">
+							<!-- TEXT HOVER STYLE -->
+							<label_a><?php _e('Text Color', 'revslider');?></label_a><input type="text" data-editing="Layer Hover Text Color" data-mode="single" name="layerTextColorHover" id="layerTextColorHover" class="my-color-field layerinput easyinit" data-visible="true" data-r="hover.color" value="transparent">
+							<div class="div5"></div>
+							<row class="directrow">
+								<onelong><label_icon class="ui_textdecoration"></label_icon><select id="layer_textdecoration_hover" class="layerinput tos2 nosearchbox easyinit" data-r="hover.textDecoration"><option selected="selected" value="none">None</option><option value="underline"><?php _e('Underline', 'revslider');?></option><option value="overline"><?php _e('Overline', 'revslider');?></option><option value="line-through"><?php _e('Line-through', 'revslider');?></option></select></onelong>
+								<oneshort></oneshort>
+							</row>
+						</div>
 										
 						<label_a><?php _e('BG Color', 'revslider');?></label_a><input type="text" data-editing="Layer BG Color on Hover" name="layerBGColor" id="layerBGColorHover" class="my-color-field layerinput easyinit" data-visible="true" data-r="hover.backgroundColor" value="transparent">
 						<div class="div5"></div>
@@ -1168,12 +1175,12 @@ if(!defined('ABSPATH')) exit();
 							</row>
 						</div>
 
-						<div class="show_on_frame_0">
+						<!--<div class="show_on_frame_0">
 							<row class="direktrow">
 								<onelong><label_a><?php _e('Force Prepare', 'revslider');?></label_a><input class="layerinput smallinput easyinit" type="checkbox" data-r="timeline.forcePrepare"/></onelong>
 								<oneshort></oneshort>
-							</row>
-						</div>
+							</row>								
+						</div>-->
 
 						<div class="show_on_frame_999">
 							<row class="direktrow">
@@ -1211,7 +1218,7 @@ if(!defined('ABSPATH')) exit();
 							</row>
 							<row class="direktrow">
 								<onelong><label_icon class="ui_z"></label_icon><input id="le_frame_z" class="layerinput valueduekeyboard smallinput easyinit input_with_presets" data-numeric="true" data-allowed="px,random,cycle,inherit" data-r="#frame#.transform.z"  data-presets_text="$C$px!$I$Inherit!$R$Random {min,max}!$CY$Cycles [val|val|val]" data-presets_val="50px!inherit!{-100,100}![-50|50]" type="text"></onelong>
-								<oneshort><label_icon class="ui_perspective"></label_icon><input id="le_frame_perspective" class="layerinput valueduekeyboard smallinput easyinit" data-numeric="true" data-allowed="px" data-r="#frame#.transform.transformPerspective" type="text"></oneshort>
+								<oneshort><div class="global_perspective_settings global_perspecitve_local_settings"><label_icon class="ui_perspective"></label_icon><input id="le_frame_perspective" class="layerinput valueduekeyboard smallinput easyinit" data-numeric="true" data-allowed="px" data-r="#frame#.transform.transformPerspective" type="text"></div></oneshort>
 							</row>
 							<div class="div10"></div>
 							<row class="direktrow">

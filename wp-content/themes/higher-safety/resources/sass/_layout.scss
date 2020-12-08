@@ -1,5 +1,6 @@
 .content-row {
-  padding: 100px 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .content-row.narrow {
@@ -15,4 +16,15 @@ img.right {
   margin-left: 30px;
 }
 
+.banner {
+  background: url(images/HS_Course_header_logos.png) no-repeat right center rgb(149,193,31,1) !important;
+  background: url(images/HS_Course_header_logos.png) no-repeat right center, linear-gradient(90deg, rgba(65,173,73,1) 0%, rgba(149,193,31,1) 100%) !important;
+  background-size: 60%, cover !important;
+  padding: 40px 0;
+
+  h1, h2 {
+    color: #fff;
+    margin-top: 0;
+  }
+}
 

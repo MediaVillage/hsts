@@ -92,13 +92,17 @@ class RevSliderSliderImport extends RevSliderSlider {
 			//do the update routines
 			$slider = new RevSliderSliderImport();
 			$slider->init_by_id($this->slider_id);
-			RevSliderPluginUpdate::upgrade_slider_to_latest($slider);
+			$upd = new RevSliderPluginUpdate();
+			
+			$upd->upgrade_slider_to_latest($slider);
+			//RevSliderPluginUpdate::upgrade_slider_to_latest($slider);
 			
 			//reinit because we just updated data which is outside of the $slider object
 			$slider = new RevSliderSliderImport();
 			$slider->init_by_id($this->slider_id);
 			
 			$slider->update_css_and_javascript_ids($this->old_slider_id, $this->slider_id, $this->map);
+			$slider->update_color_ids($this->map);
 			
 			//$slider->update_modal_ids($slider_ids, $slides_ids);
 			
@@ -210,10 +214,22 @@ class RevSliderSliderImport extends RevSliderSlider {
 	 **/
 	public function set_slider_data_raw(){
 		global $wp_filesystem;
-		
 		$this->slider_raw_data = ($wp_filesystem->exists($this->download_path.'slider_export.txt')) ? $wp_filesystem->get_contents($this->download_path.'slider_export.txt') : '';
 		if($this->slider_raw_data == ''){
-			$this->throw_error(__('slider_export.txt does not exist!', 'revslider'));
+			$dirs = scandir($this->download_path);
+			if(!empty($dirs)){
+				foreach($dirs as $dir){				
+					if($dir !== '.' && $dir !== '..' && is_dir($this->download_path . $dir)){
+						$dir = $this->download_path . $dir . '/';
+						$this->slider_raw_data = ($wp_filesystem->exists($dir.'slider_export.txt')) ? $wp_filesystem->get_contents($dir.'slider_export.txt') : '';
+						if($this->slider_raw_data != '') {
+							$this->download_path = $dir;
+							break;
+						}
+					}
+				}
+			}
+			if($this->slider_raw_data == '') $this->throw_error(__('slider_export.txt does not exist!', 'revslider'));
 		}
 	}
 	
@@ -1503,9 +1519,8 @@ class RevSliderSliderImport extends RevSliderSlider {
 						}
 						
 						if(isset($layer['type']) && $layer['type'] == 'svg'){
-							if(isset($layer['svgSource'])){
-								$layer['svgSource'] = content_url().$layer['svgSource'];
-							}
+							$svg = $this->get_val($layer, array('svg', 'source'), '');
+							if(!empty($svg)) $layer['svg']['source'] = content_url().$svg;
 						}
 						
 						$actions = $this->get_val($layer, array('actions', 'action'), array());
@@ -1625,6 +1640,42 @@ class RevSliderSliderImport extends RevSliderSlider {
 		}
 		
 		return true;
+	}
+	
+	
+	/**
+	 * update the slide ids in the slider skins 
+	 * @since: 6.2.3
+	 * skins -> colors -> [] -> ref -> [] -> r & slide
+	 **/
+	public function update_color_ids($map){
+		$skins = $this->get_param('skins', array());
+		if(!empty($skins) && isset($skins['colors']) && !empty($skins['colors']) && !empty($map)){
+			
+			$update = false;
+			foreach($skins['colors'] as $k => $v){
+				if(isset($v['ref']) && !empty($v['ref'])){
+					foreach($v['ref'] as $rk => $rv){
+						$os = $this->get_val($rv, 'slide');
+						
+						if(isset($map[$os])){
+							$update = true;
+							$skins['colors'][$k]['ref'][$rk]['slide'] = (string)$map[$os];
+							
+							$r = explode('.', $this->get_val($rv, 'r'));
+							if(!empty($r) && is_array($r)){
+								$r[0] = $map[$os];
+								$skins['colors'][$k]['ref'][$rk]['r'] = implode('.', $r);
+							}
+						}
+					}
+				}
+			}
+			
+			if($update){
+				$this->update_params(array('skins' => $skins));
+			}
+		}
 	}
 	
 	

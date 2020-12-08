@@ -109,8 +109,9 @@ RVS.SC = RVS.SC === undefined ? {} : RVS.SC;
 		
 		
 
-		updateBlockViews : function(show) {
-			if (show===true) jQuery('.rs_optimizer_button_wrapper').closest('.components-panel__body').addClass("rs_component_panel"); else jQuery('.rs_component_panel').removeClass("rs_component_panel");
+		updateBlockViews : function(show) {			
+		
+			if (show===true) jQuery('.rs_optimizer_button_wrapper').closest('.components-panel').addClass("rs_component_panel"); else jQuery('.rs_component_panel').removeClass("rs_component_panel");
 		},
 
 		buildShortCode : function() {
@@ -173,7 +174,7 @@ RVS.SC = RVS.SC === undefined ? {} : RVS.SC;
 					QTags.insertContent(RVS.SC.BLOCK.content);				
 				break;
 				case 'gutenberg':					
-					var obj = {slidertitle: RVS.SC.BLOCK.slidertitle, alias: RVS.SC.BLOCK.alias, modal: RVS.SC.BLOCK.modal ,  content: RVS.SC.BLOCK.content , zindex: RVS.SC.BLOCK.zindex};
+					var obj = {slidertitle: RVS.SC.BLOCK.slidertitle, alias: RVS.SC.BLOCK.alias, modal: RVS.SC.BLOCK.modal ,  content: RVS.SC.BLOCK.content , zindex: RVS.SC.BLOCK.zindex , wrapperid: RVS.SC.BLOCK.wrapperid};					
 					revslider_react.setState(obj);						
 					revslider_react.props.setAttributes(obj);
 					revslider_react.forceUpdate();
@@ -185,7 +186,9 @@ RVS.SC = RVS.SC === undefined ? {} : RVS.SC;
 		openTemplateLibrary: function(type) {		
 			// 5.0 to 6.0 update patch
 			if(typeof RVS.LIB.OBJ === 'undefined') return;
-						
+			if (type==="tinymce") {
+				RVS.SC.BLOCK = {};
+			}						
 			RVS.SC.type = type;
 			if(!RVS.SC.libraryInited) {				
 				RVS.SC.libraryInited = true;
@@ -211,6 +214,7 @@ RVS.SC = RVS.SC === undefined ? {} : RVS.SC;
 		},
 		
 		openBlockSettings : function(type,sc){
+			
 			if (RVS.ENV.activated!==true) RVS.F.showRegisterSliderInfo();
 			if (sc===undefined && RVS.SC.BLOCK===undefined) return;			
 			RVS.SC.BLOCK = sc!==undefined ?  RVS.SC.scToBlock(sc) : RVS.SC.BLOCK===undefined || RVS.SC.BLOCK.text===undefined ? RVS.SC.scToBlock(RVS.SC.BLOCK.content) : RVS.SC.scToBlock(RVS.SC.BLOCK.text);
@@ -249,8 +253,20 @@ RVS.SC = RVS.SC === undefined ? {} : RVS.SC;
 		openOptimizer : function(alias){ if (alias!==undefined && alias.length>0) RVS.F.openOptimizer({alias:alias});}						
 	};
 
+	
 	// INITIALISE PROCESSES
-	jQuery(document).ready(function() {	RVS.SC.init();	});
+	var RVSSCINIT_once = false
+	if (document.readyState === "loading") 
+		document.addEventListener('readystatechange',function(){
+			if ((document.readyState === "interactive" || document.readyState === "complete") && !RVSSCINIT_once) {
+				RVSSCINIT_once = true;
+				RVS.SC.init();
+			}
+		});
+	else {
+		RVSSCINIT_once = true;
+		RVS.SC.init();
+	}
 		
 	function updateInherits(novisual) {
 		if (RVS==undefined || RVS.SC.BLOCK==undefined || RVS.SC.BLOCK.offset===undefined) return;
@@ -306,8 +322,10 @@ RVS.SC = RVS.SC === undefined ? {} : RVS.SC;
 		RVS.F.updateAllOnOff();
 		updateInherits();
 		jQuery('.scblockinput').trigger('init');
-		document.getElementById('srbs_scr_evt').innerHTML = RVS.SC.BLOCK.popup.event.v;
-		if (RVS.ENV.activated!==false) jQuery('.rb_not_on_notactive').removeClass("disabled"); else jQuery('.rb_not_on_notactive').addClass("disabled");
+		if (RVS.SC.BLOCK.popup!==undefined) {
+			document.getElementById('srbs_scr_evt').innerHTML = RVS.SC.BLOCK.popup.event.v;
+			if (RVS.ENV.activated!==false) jQuery('.rb_not_on_notactive').removeClass("disabled"); else jQuery('.rb_not_on_notactive').addClass("disabled");
+		}
 	}
 
 	function blockSettingsReset() {
@@ -533,7 +551,7 @@ VISUAL COMPOSER HOOKS
 		/*
 		DEFAULT LISTENERS
 		 */
-		RVS.DOC.on('click','.wp-block.editor-block-list__block[data-type="themepunch/revslider"]',function() {RVS.SC.updateBlockViews(true);});
+		RVS.DOC.on('click','.block-editor-editor-skeleton__content, .interface-interface-skeleton__content', function() {RVS.SC.updateBlockViews(true);});		
 		RVS.DOC.on('addRevSliderShortcode', function(e, data) {				
 			if(data!==undefined && data.alias !== '-1'){
 				data.size = data.size==="" || data.size===undefined ? "auto" : data.size;				

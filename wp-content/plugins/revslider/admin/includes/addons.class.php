@@ -11,7 +11,7 @@ class RevSliderAddons extends RevSliderFunctions { //before: Rev_addon_Admin
 	//private $addon_version_required = '2.0.0'; //this holds the globally needed addon version for the current RS version
 	
 	private $addon_version_required = array(
-		'revslider-whiteboard-addon' => '2.0.0',
+		'revslider-whiteboard-addon' => '2.2.0',
 		'revslider-backup-addon' => '2.0.0',
 		'revslider-gallery-addon' => '2.0.0',
 		'revslider-rel-posts-addon' => '2.0.0',
@@ -164,7 +164,7 @@ class RevSliderAddons extends RevSliderFunctions { //before: Rev_addon_Admin
 		}else{
 			$upload_dir	= wp_upload_dir();
 			$file		= $upload_dir['basedir']. '/revslider/templates/' . $plugin_slug . '.zip';
-			@mkdir(dirname($file));
+			@mkdir(dirname($file), 0777, true);
 			$ret		= @file_put_contents($file, $get['body']);
 
 			WP_Filesystem();

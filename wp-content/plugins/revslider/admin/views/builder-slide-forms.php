@@ -63,11 +63,9 @@ if ($wpml->wpml_exists()) {
 						<label_a><?php _e('', 'revslider');?></label_a><div data-evt="updateslidebasic" data-evtparam="kenburnupdate" class="basic_action_button  longbutton callEventButton"><i class="material-icons">refresh</i><?php _e('Refresh Source', 'revslider');?></div>
 					</div><!--
 					--><div class="slidebg_solid_settings slide_bg_settings">
-						<label_a><?php _e('BG Color', 'revslider');?></label_a><input type="text" data-evt="updateslidebasic" data-editing="<?php _e('Background Color', 'revslider');?>" name="slide_bg_color" id="s_bg_color" data-visible="true" class="my-color-field slideinput easyinit" data-r="bg.color" value="#fff">
-						<div class="div500"></div>												
+						<label_a><?php _e('BG Color', 'revslider');?></label_a><input type="text" data-evt="updateslidebasic" data-editing="<?php _e('Background Color', 'revslider');?>" name="slide_bg_color" id="s_bg_color" data-visible="true" class="my-color-field slideinput easyinit" data-r="bg.color" value="#fff">																	
 					</div><!--
 					--><div class="slidebg_trans_settings slide_bg_settings">						
-						<div class="div500"></div>												
 					</div><!--
 					--><div class="slidebg_youtube_settings slide_bg_settings">
 						<label_a><?php _e('YouTube ID', 'revslider');?></label_a><input id="s_bg_youtube_src" data-evt="updateslidebasic" class="slideinput easyinit" type="text" data-r="bg.youtube" placeholder="<?php _e('Enter YouTube ID', 'revslider');?>">
@@ -220,10 +218,11 @@ if ($wpml->wpml_exists()) {
 							<option value="none"><?php _e('Disable', 'revslider');?></option>
 							<option value="loop"><?php _e('Slider Timer paused', 'revslider');?></option>
 							<option value="loopandnoslidestop"><?php _e('Slider Timer keep going', 'revslider');?></option>
-						</select><span class="linebreak"></span>-->
+						</select><span class="linebreak"></span>-->						
 						<longoption><i class="material-icons">open_with</i><label_a><?php _e('Force Cover Mode', 'revslider');?></label_a><input type="checkbox"  id="sl_vid_force_cover" class="slideinput easyinit" data-r="bg.video.forceCover" data-showhide="#slide_dotted_overlay" data-showhidedep="true"/></longoption>
 						<longoption><i class="material-icons">pause</i><label_a ><?php _e('Pause Timer during Play', 'revslider');?></label_a><input type="checkbox" class="easyinit slideinput" data-r="bg.video.pausetimer"></longoption>
 						<longoption><i class="material-icons">loop</i><label_a ><?php _e('Loop Media', 'revslider');?></label_a><input type="checkbox" class="easyinit slideinput" id="sl_vid_loop_me" data-change="#sl_vid_nextslide" data-changeto="false" data-changewhennot="false" data-r="bg.video.loop"></longoption>										
+						<longoption><i class="material-icons">query_builder</i><label_a><?php _e('Start after Slide Transition', 'revslider');?></label_a><input type="checkbox"  id="sl_vid_after_slide_trans" class="slideinput easyinit" data-r="bg.video.startAfterTransition"/></longoption>
 						<longoption><i class="material-icons">skip_next</i><label_a><?php _e('Next Slide at End', 'revslider');?></label_a><input type="checkbox"  id="sl_vid_nextslide" data-change="#sl_vid_loop_me" data-changeto="false" data-changewhennot="false" class="slideinput easyinit" data-r="bg.video.nextSlideAtEnd" /></longoption>
 						<longoption><i class="material-icons">fast_rewind</i><label_a><?php _e('Rewind at Start', 'revslider');?></label_a><input type="checkbox"  id="sl_vid_forceRewind" class="slideinput easyinit" data-r="bg.video.forceRewind" /></longoption>
 						<div style="display:none !important"><longoption><i class="material-icons">volume_mute</i><label_a><?php _e('Mute at Start', 'revslider');?></label_a><input type="checkbox"  id="sl_vid_mute" class="slideinput easyinit" data-r="bg.video.mute" /></longoption></div>
@@ -476,7 +475,7 @@ if ($wpml->wpml_exists()) {
 							<oneshort><label_icon class="ui_blur_end"></label_icon><input data-allowed="px" data-numeric="true" data-evt="updateKenBurnSettings" data-evtparam="end" id="sl_pz_blure" class="slideinput easyinit verysmallinput valueduekeyboard" data-min="0" data-max="100" type="text" data-r="panzoom.blurEnd"></oneshort>
 						</row>
 
-						<label_a><?php _e('Easing', 'revslider')?></label_a><select data-evt="updateKenBurnSettings" id="sl_pz_ease" class="slideinput tos2 nosearchbox easyinit" data-theme="dark" data-r="panzoom.ease"><option value="Linear.easeNone">Linear.easeNone</option><option value="Power0.easeIn">Power0.easeIn</option><option value="Power0.easeInOut">Power0.easeInOut</option><option value="Power0.easeOut">Power0.easeOut</option><option value="Power1.easeIn">Power1.easeIn</option><option value="Power1.easeInOut">Power1.easeInOut</option><option value="Power1.easeOut">Power1.easeOut</option><option value="Power2.easeIn">Power2.easeIn</option><option value="Power2.easeInOut">Power2.easeInOut</option><option value="Power2.easeOut">Power2.easeOut</option><option value="Power3.easeIn">Power3.easeIn</option><option value="Power3.easeInOut">Power3.easeInOut</option><option value="Power3.easeOut">Power3.easeOut</option><option value="Power4.easeIn">Power4.easeIn</option><option value="Power4.easeInOut">Power4.easeInOut</option><option value="Power4.easeOut">Power4.easeOut</option><option value="Back.easeIn">Back.easeIn</option><option value="Back.easeInOut">Back.easeInOut</option><option value="Back.easeOut">Back.easeOut</option><option value="Bounce.easeIn">Bounce.easeIn</option><option value="Bounce.easeInOut">Bounce.easeInOut</option><option value="Bounce.easeOut">Bounce.easeOut</option><option value="Circ.easeIn">Circ.easeIn</option><option value="Circ.easeInOut">Circ.easeInOut</option><option value="Circ.easeOut">Circ.easeOut</option><option value="Elastic.easeIn">Elastic.easeIn</option><option value="Elastic.easeInOut">Elastic.easeInOut</option><option value="Elastic.easeOut">Elastic.easeOut</option><option value="Expo.easeIn">Expo.easeIn</option><option value="Expo.easeInOut">Expo.easeInOut</option><option value="Expo.easeOut">Expo.easeOut</option><option value="Sine.easeIn">Sine.easeIn</option><option value="Sine.easeInOut">Sine.easeInOut</option><option value="Sine.easeOut">Sine.easeOut</option><option value="SlowMo.ease">SlowMo.ease</option></select><span class="linebreak"></span>
+						<label_a><?php _e('Easing', 'revslider')?></label_a><select data-evt="updateKenBurnSettings" id="sl_pz_ease" class="slideinput tos2 nosearchbox easyinit" data-theme="dark" data-r="panzoom.ease"><option value="none">none</option><option value="power0.in">power0.in</option><option value="power0.inOut">power0.inOut</option><option value="power0.out">power0.out</option><option value="power1.in">power1.in</option><option value="power1.inOut">power1.inOut</option><option value="power1.out">power1.out</option><option value="power2.in">power2.in</option><option value="power2.inOut">power2.inOut</option><option value="power2.out">power2.out</option><option value="power3.in">power3.in</option><option value="power3.inOut">power3.inOut</option><option value="power3.out">power3.out</option><option value="power4.in">power4.in</option><option value="power4.inOut">power4.inOut</option><option value="power4.out">power4.out</option><option value="back.in">back.in</option><option value="back.inOut">back.inOut</option><option value="back.out">back.out</option><option value="bounce.in">bounce.in</option><option value="bounce.inOut">bounce.inOut</option><option value="bounce.out">bounce.out</option><option value="circ.in">circ.in</option><option value="circ.inOut">circ.inOut</option><option value="circ.out">circ.out</option><option value="elastic.in">elastic.in</option><option value="elastic.inOut">elastic.inOut</option><option value="elastic.out">elastic.out</option><option value="expo.in">expo.in</option><option value="expo.inOut">expo.inOut</option><option value="expo.out">expo.out</option><option value="sine.in">sine.in</option><option value="sine.inOut">sine.inOut</option><option value="sine.out">sine.out</option><option value="slow">slow</option></select><span class="linebreak"></span>
 						<label_a><?php _e('Duration', 'revslider');?></label_a><input data-allowed="ms" data-numeric="true" data-evt="updateKenBurnSettings" id="sl_pz_dur" class="slideinput easyinit valueduekeyboard withsuffix" data-suffix="ms" data-min="0" data-max="1000000" type="text" data-r="panzoom.duration">
 						<div id="kenburn_timeline"><div class="pz_timedone"></div><div class="pz_pin"></div></div>
 						<div id="kenburn_simulator" data-states="play,stop" data-start_state="play" data-stop="previewKenBurn" data-stop_state="" data-stop_icon="stop" data-play="previewStopKenBurn"  data-play_state="" data-play_icon="play_arrow" class="basic_action_button onlyicon switch_button"><i class="switch_button_icon material-icons"></i><span class="switch_button_state"></span></div>
@@ -547,7 +546,7 @@ if ($wpml->wpml_exists()) {
 						</select><span class="linebreak"></span>
 						<div class="slidelink_seo_subs" id="slidelink_regular_seo">
 							<label_a><?php _e('URL', 'revslider');?></label_a><input placeholder="Enter URL to link to" id="slide_ls_link" class="slideinput easyinit" type="text" data-r="seo.link"><span class="linebreak"></span>
-							<label_a><?php _e('URL Help', 'revslider');?></label_a><select data-theme="dark" id="slide_ls_url_help" class="slideinput tos2 nosearchbox easyinit"  data-r="seo.linkHelp">
+							<label_a><?php _e('Protocol', 'revslider');?></label_a><select data-theme="dark" id="slide_ls_url_help" class="slideinput tos2 nosearchbox easyinit"  data-r="seo.linkHelp">
 								<option value="http"><?php _e('http://', 'revslider');?></option>
 								<option value="https"><?php _e('https://', 'revslider');?></option>
 								<option value="auto"><?php _e('Auto http / https', 'revslider');?></option>
@@ -558,7 +557,7 @@ if ($wpml->wpml_exists()) {
 								<option value="_blank"><?php _e('_blank', 'revslider');?></option>
 								<option value="_top"><?php _e('_top', 'revslider');?></option>
 								<option value="_parent"><?php _e('_parent', 'revslider');?></option>														
-						<	/select>							
+							</select>							
 						</div>
 						<div class="slidelink_seo_subs" id="slidelink_slide_seo">
 							<label_a><?php _e('Link to Slide', 'revslider');?></label_a><select data-theme="dark" id="slide_seo_linktoslide" class="slideinput tos2 nosearchbox easyinit"  data-r="seo.slideLink"></select><span class="linebreak"></span>

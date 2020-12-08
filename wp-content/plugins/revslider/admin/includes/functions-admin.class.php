@@ -57,11 +57,12 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 				$object['objects']['tags'] = $library->get_objects_categories('1');
 				asort($object['objects']['tags']);
 			}
+			$object = apply_filters('revslider_get_full_library_refresh', $object, $include, $tmp_slide_uid, $refresh_from_server, $get_static_slide, $this);
 		}
 		
 		if(in_array('moduletemplates', $include) || in_array('all', $include)){
 			if(!isset($object['moduletemplates'])) $object['moduletemplates'] = array();
-			$object['moduletemplates']['items']	= $template->get_tp_template_sliders_for_library();
+			$object['moduletemplates']['items']	= $template->get_tp_template_sliders_for_library($refresh_from_server);
 		}
 		if(in_array('moduletemplateslides', $include) || in_array('all', $include)){
 			if(!isset($object['moduletemplateslides'])) $object['moduletemplateslides'] = array();
@@ -111,6 +112,7 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 			if(!isset($object['wpvideos'])) $object['wpvideos'] = array();
 			$object['wpvideos']['items'] = $library->load_wp_objects('video', $after);
 		}*/
+		$object = apply_filters('revslider_get_full_library', $object, $include, $tmp_slide_uid, $refresh_from_server, $get_static_slide, $this);
 		
 		return $object;
 	}
@@ -157,7 +159,7 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 		asort($svg_cat);
 		asort($font_cat);
 		
-		return array(
+		$tags = array(
 			'moduletemplates' => array('tags' => $t_cat),
 			'modules'	=> array('tags' => $slider_cat),
 			'svgs'		=> array('tags' => $svg_cat),
@@ -169,6 +171,7 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 			'wpimages'	=> array('tags' => $wpi),
 			'wpvideos'	=> array('tags' => $wpv)*/
 		);
+		return apply_filters('revslider_get_short_library', $tags, $library, $this);
 	}
 	
 	
@@ -177,6 +180,7 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 	 **/
 	public function get_slider_overview(){
 		$rs_slider	= new RevSliderSlider();
+		$rs_slide	= new RevSliderSlide();
 		$sliders	= $rs_slider->get_sliders(false);
 
 		$rs_folder	= new RevSliderFolder();
@@ -184,11 +188,28 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 		
 		$sliders 	= array_merge($sliders, $folders);
 		$data		= array();
-		
 		if(!empty($sliders)){
+			$slider_list = array();
 			foreach($sliders as $slider){
+				$slider_list[] = $slider->get_id();
+			}
+			
+			$slides_raw = $rs_slide->get_all_slides_raw($slider_list);
+			
+			foreach($sliders as $slider){
+				$slides = array();
+				$sid = $slider->get_id();
+				foreach($slides_raw as $s => $r){
+					if($r->get_slider_id() !== $sid) continue;
+					
+					$slides[] = $r;
+					unset($slides_raw[$s]);
+				}
+				
+				$slides = (empty($slides)) ? false : $slides;
+				
 				$slider->init_layer = false;
-				$data[] = $slider->get_overview_data();
+				$data[] = $slider->get_overview_data(false, $slides);
 			}
 		}
 		
@@ -332,7 +353,7 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 	 */
 	public function add_notices(){
 		$_n = array();
-		$notices = get_option('revslider-notices', false);
+		$notices = (array)get_option('revslider-notices', false);
 		
 		if(!empty($notices) && is_array($notices)){
 			$n_discarted = get_option('revslider-notices-dc', array());
@@ -571,27 +592,29 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 	 * Create Multilanguage for JavaScript
 	 */
 	public function get_javascript_multilanguage(){
-		$lang = array(			
-			'editskins' => __('Edit Skin List', 'revslider'),			
-			'globalcoloractive' => __('Color Skin Active', 'revslider'),			
-			'corejs' => __('Core JavaScript', 'revslider'),			
-			'corecss' => __('Core CSS', 'revslider'),			
-			'coretools' => __('Core Tools (GreenSock & Co)', 'revslider'),			
-			'enablecompression' => __('Enable Server Compression', 'revslider'),			
-			'noservercompression' => __('Not Available, read FAQ', 'revslider'),			
-			'servercompression' => __('Serverside Compression', 'revslider'),			
-			'sizeafteroptim' => __('Size after Optimization', 'revslider'),			
-			'chgimgsizesrc' => __('Change Image Size or Src', 'revslider'),			
-			'pickandim' => __('Pick another Dimension', 'revslider'),			
-			'optimize' => __('Optimize', 'revslider'),			
-			'savechanges' => __('Save Changes', 'revslider'),			
-			'applychanges' => __('Apply Changes', 'revslider'),			
-			'suggestion' => __('Suggestion', 'revslider'),			
-			'toosmall' => __('Too Small', 'revslider'),			
-			'standard1x' => __('Standard (1x)', 'revslider'),			
-			'retina2x' => __('Retina (2x)', 'revslider'),			
-			'oversized' => __('Oversized', 'revslider'),			
-			'quality' => __('Quality', 'revslider'),			
+		$lang = array(
+			'previewnotworking' => __('The preview could not be loaded due to some conflict with another WordPress theme or plugin', 'revslider'),
+			'checksystemnotworking' => __('Server connection issues, contact your hosting provider for further assistance', 'revslider'),
+			'editskins' => __('Edit Skin List', 'revslider'),
+			'globalcoloractive' => __('Color Skin Active', 'revslider'),
+			'corejs' => __('Core JavaScript', 'revslider'),
+			'corecss' => __('Core CSS', 'revslider'),
+			'coretools' => __('Core Tools (GreenSock & Co)', 'revslider'),
+			'enablecompression' => __('Enable Server Compression', 'revslider'),
+			'noservercompression' => __('Not Available, read FAQ', 'revslider'),
+			'servercompression' => __('Serverside Compression', 'revslider'),
+			'sizeafteroptim' => __('Size after Optimization', 'revslider'),
+			'chgimgsizesrc' => __('Change Image Size or Src', 'revslider'),
+			'pickandim' => __('Pick another Dimension', 'revslider'),
+			'optimize' => __('Optimize', 'revslider'),
+			'savechanges' => __('Save Changes', 'revslider'),
+			'applychanges' => __('Apply Changes', 'revslider'),
+			'suggestion' => __('Suggestion', 'revslider'),
+			'toosmall' => __('Too Small', 'revslider'),
+			'standard1x' => __('Standard (1x)', 'revslider'),
+			'retina2x' => __('Retina (2x)', 'revslider'),
+			'oversized' => __('Oversized', 'revslider'),
+			'quality' => __('Quality', 'revslider'),
 			'file' => __('File', 'revslider'),
 			'resize' => __('Resize', 'revslider'),
 			'lowquality' => __('Optimized (Low Quality)', 'revslider'),
@@ -773,9 +796,7 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 			'updateNow' => __('Update Now', 'revslider'),
 			'activateToUpdate' => __('Activate To Update', 'revslider'),
 			'activated' => __('Activated', 'revslider'),
-			'notActivated' => __('Not Activated', 'revslider'),
-			'registerCode' => __('Register this Code', 'revslider'),
-			'deregisterCode' => __('Deregister this Code', 'revslider'),
+			'notActivated' => __('Not Activated', 'revslider'),			
 			'embedingLine1' => __('Standard Module Embedding', 'revslider'),
 			'embedingLine2' => __('For the <b>pages and posts</b> editor insert the Shortcode:', 'revslider'),
 			'embedingLine2a' => __('To Use it as <b>Modal</b> on <b>pages and posts</b> editor insert the Shortcode:', 'revslider'),
@@ -791,6 +812,7 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 			'layeraction_group_media' => __('Media Actions', 'revslider'),
 			'layeraction_group_fullscreen' => __('Fullscreen Actions', 'revslider'),
 			'layeraction_group_advanced' => __('Advanced Actions', 'revslider'),
+			'layeraction_menu' => __('Menu Link & Scroll', 'revslider'),
 			'layeraction_link' => __('Simple Link', 'revslider'),
 			'layeraction_callback' => __('Call Back', 'revslider'),
 			'layeraction_modal' => __('Open Slider Modal', 'revslider'),
@@ -1001,13 +1023,7 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 			'deletingslider' => __('Deleting Slider', 'revslider'),
 			'active_sr_tmp_obl' => __('Template & Object Library', 'revslider'),
 			'active_sr_inst_upd' => __('Instant Updates', 'revslider'),
-			'active_sr_one_on_one' => __('1on1 Support', 'revslider'),
-			'getlicensekey' => __('Get a Purchase Code', 'revslider'),
-			'ihavelicensekey' => __('I have a Purchase Code', 'revslider'),
-			'active_sr_to_access' => __('Register Slider Revolution<br>to Unlock Premium Features', 'revslider'),
-			'active_sr_plg_activ' => __('Register Purchase Code', 'revslider'),
-			'onepurchasekey' => __('1 Purchase Code per Website!', 'revslider'),
-			'onepurchasekey_info' => __('If you want to use your purchase code on<br>another domain, please deregister it first or', 'revslider'),
+			'active_sr_one_on_one' => __('1on1 Support', 'revslider'),			
 			'parallaxsettoenabled' => __('Parallax is now generally Enabled', 'revslider'),
 			'timelinescrollsettoenabled' => __('Scroll Based Timeline is now generally Enabled', 'revslider'),
 			'feffectscrollsettoenabled' => __('Filter Effect Scroll is now generally Enabled', 'revslider'),
@@ -1020,7 +1036,35 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 			'quickcontenteditor' => __('Quick Content Editor', 'revslider'),
 			'module' => __('Module', 'revslider'),
 			'quickstyleeditor' => __('Quick Style Editor', 'revslider'),
-			'all' => __('All', 'revslider')
+			'all' => __('All', 'revslider'),
+			'active_sr_to_access' => __('Register Slider Revolution<br>to Unlock Premium Features', 'revslider'),
+			'membersarea' => __('Members Area', 'revslider'),
+			'onelicensekey' => __('1 License Key per Website!', 'revslider'),
+			'onepurchasekey' => __('1 Purchase Code per Website!', 'revslider'),
+			'onelicensekey_info' => __('If you want to use your license key on another domain, please<br> deregister it in the members area or use a different key.', 'revslider'),
+			'onepurchasekey_info' => __('If you want to use your purchase code on<br>another domain, please deregister it first or', 'revslider'),
+			'registeredlicensekey' => __('Registered License Key', 'revslider'),
+			'registeredpurchasecode' => __('Registered Purchase Code', 'revslider'),
+			'registerlicensekey' => __('Register License Key', 'revslider'),
+			'registerpurchasecode' => __('Register Purchase Code', 'revslider'),
+			'registerCode' => __('Register this Code', 'revslider'),
+			'registerKey' => __('Register this License Key', 'revslider'),
+			'deregisterCode' => __('Deregister this Code', 'revslider'),
+			'deregisterKey' => __('Deregister this License Key', 'revslider'),
+			'active_sr_plg_activ' => __('Register Purchase Code', 'revslider'),
+			'active_sr_plg_activ_key' => __('Register License Key', 'revslider'),
+			'getpurchasecode' => __('Get a Purchase Code', 'revslider'),
+			'getlicensekey' => __('Licensing Options', 'revslider'),
+			'ihavepurchasecode' => __('I have a Purchase Code', 'revslider'),
+			'ihavelicensekey' => __('I have a License Key', 'revslider'),
+			'enterlicensekey' => __('Enter License Key', 'revslider'),
+			'enterpurchasecode' => __('Enter Purchase Code', 'revslider'),
+			'colrskinhas' => __('This Skin use', 'revslider'),
+			'deleteskin' => __('Delete Skin', 'revslider'),
+			'references' => __('References', 'revslider'),
+			'colorwillkept' => __('The References will keep their colors after deleting Skin.', 'revslider'),
+			'areyousuredeleteskin' => __('Are you sure to delete Color Skin?', 'revslider'),
+
 			
 		);
 

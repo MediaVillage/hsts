@@ -7,6 +7,8 @@
 
 if(!defined('ABSPATH')) exit();
 
+$revslider_rev_start_size_loaded = false;
+
 class RevSliderFront extends RevSliderFunctions {
 
 	const TABLE_SLIDER			 = 'revslider_sliders';
@@ -96,7 +98,7 @@ class RevSliderFront extends RevSliderFunctions {
 			wp_dequeue_script('tp-tools');
 		}
 		
-		wp_enqueue_script('tp-tools', RS_PLUGIN_URL . 'public/assets/js/revolution.tools.min.js', $waitfor, RS_TP_TOOLS, $inc_footer);
+		wp_enqueue_script('tp-tools', RS_PLUGIN_URL . 'public/assets/js/rbtools.min.js', $waitfor, RS_TP_TOOLS, $inc_footer);
 		
 		if(!file_exists(RS_PLUGIN_PATH.'public/assets/js/rs6.min.js')){
 			wp_enqueue_script('revmin', RS_PLUGIN_URL . 'public/assets/js/dev/rs6.main.js', 'tp-tools', $rs_ver, $inc_footer);
@@ -178,7 +180,7 @@ class RevSliderFront extends RevSliderFunctions {
 
 		?>
 		<script type="text/javascript">
-			jQuery(document).ready(function(){
+			function rs_adminBarToolBarTopFunction() {
 				if(jQuery('#wp-admin-bar-revslider-default').length > 0 && jQuery('rs-module-wrap').length > 0){
 					var aliases = new Array();
 					jQuery('rs-module-wrap').each(function(){
@@ -199,7 +201,19 @@ class RevSliderFront extends RevSliderFunctions {
 				}else{
 					jQuery('#wp-admin-bar-revslider').remove();
 				}
-			});
+			}
+			var adminBarLoaded_once = false
+			if (document.readyState === "loading") 
+				document.addEventListener('readystatechange',function(){
+					if ((document.readyState === "interactive" || document.readyState === "complete") && !adminBarLoaded_once) {
+						adminBarLoaded_once = true;
+						rs_adminBarToolBarTopFunction()
+					}
+				});
+			else {
+				adminBarLoaded_once = true;
+				rs_adminBarToolBarTopFunction();
+			}
 		</script>
 		<?php
 }
@@ -250,7 +264,7 @@ class RevSliderFront extends RevSliderFunctions {
 	 * @since: 5.0
 	 */
 	public static function add_defer_forscript($url){
-		if(strpos($url, 'rs6.min.js') === false && strpos($url, 'revolution.tools.min.js') === false){
+		if(strpos($url, 'rs6.min.js') === false && strpos($url, 'rbtools.min.js') === false){
 			return $url;
 		}elseif(is_admin()){
 			return $url;
@@ -260,7 +274,7 @@ class RevSliderFront extends RevSliderFunctions {
 	}
 	
 	/**
-	 * Add functionality to gutenberg, elementar, visual composer and so on
+	 * Add functionality to gutenberg, elementor, visual composer and so on
 	 **/
 	public static function add_post_editor(){
 		/**
@@ -301,95 +315,106 @@ class RevSliderFront extends RevSliderFunctions {
 	 * @since: 5.4.3
 	 * @before: add_setREVStartSize()
 		//NOT COMPRESSED VERSION
-		function setREVStartSize(e){			
-			try {								
-				var pw = document.getElementById(e.c).parentNode.offsetWidth,
-					newh;
-				pw = pw===0 || isNaN(pw) ? window.innerWidth : pw;
-				e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
-				e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
-				e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
-				e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
-				e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
-				e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
-				e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);		
-				if(e.layout==="fullscreen" || e.l==="fullscreen") 						
-					newh = Math.max(e.mh,window.innerHeight);					
-				else{					
-					e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
-					for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];					
-					e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
-					e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
-					for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
-										
-					var nl = new Array(e.rl.length),
-						ix = 0,						
-						sl;					
-					e.tabw = e.tabhide>=pw ? 0 : e.tabw;
-					e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
-					e.tabh = e.tabhide>=pw ? 0 : e.tabh;
-					e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;					
-					for (var i in e.rl) nl[i] = e.rl[i]<window.innerWidth ? 0 : e.rl[i];
-					sl = nl[0];									
-					for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}															
-					var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);					
-					newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
-				}				
-				if(window.rs_init_css===undefined) window.rs_init_css = document.head.appendChild(document.createElement("style"));					
-				document.getElementById(e.c).height = newh;
-				window.rs_init_css.innerHTML += "#"+e.c+"_wrapper { height: "+newh+"px }";				
-			} catch(e){
-				console.log("Failure at Presize of Slider:" + e)
-			}					   
+		function setREVStartSize(e){	
+			//window.requestAnimationFrame(function() {	
+				window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;	
+				window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;	
+				try {								
+					var pw = document.getElementById(e.c).parentNode.offsetWidth,
+						newh;
+					pw = pw===0 || isNaN(pw) ? window.RSIW : pw;
+					e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
+					e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
+					e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
+					e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
+					e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
+					e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
+					e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);		
+					if(e.layout==="fullscreen" || e.l==="fullscreen") 						
+						newh = Math.max(e.mh,window.RSIH);					
+					else{					
+						e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+						for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];					
+						e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
+						e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+						for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
+											
+						var nl = new Array(e.rl.length),
+							ix = 0,						
+							sl;					
+						e.tabw = e.tabhide>=pw ? 0 : e.tabw;
+						e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
+						e.tabh = e.tabhide>=pw ? 0 : e.tabh;
+						e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;					
+						for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
+						sl = nl[0];									
+						for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}															
+						var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);					
+						newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
+					}				
+					if(window.rs_init_css===undefined) window.rs_init_css = document.head.appendChild(document.createElement("style"));					
+					document.getElementById(e.c).height = newh+"px";
+					window.rs_init_css.innerHTML += "#"+e.c+"_wrapper { height: "+newh+"px }";				
+				} catch(e){
+					console.log("Failure at Presize of Slider:" + e)
+				}					   
+			//}
 		  };
 	 */
 	public static function js_set_start_size(){
+		global $revslider_rev_start_size_loaded;
+		if($revslider_rev_start_size_loaded === true) return false;
+		
 		$script = '<script type="text/javascript">';		
-		$script .= 'function setREVStartSize(e){			
-			try {								
-				var pw = document.getElementById(e.c).parentNode.offsetWidth,
-					newh;
-				pw = pw===0 || isNaN(pw) ? window.innerWidth : pw;
-				e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
-				e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
-				e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
-				e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
-				e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
-				e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
-				e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);		
-				if(e.layout==="fullscreen" || e.l==="fullscreen") 						
-					newh = Math.max(e.mh,window.innerHeight);				
-				else{					
-					e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
-					for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];					
-					e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
-					e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
-					for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
-										
-					var nl = new Array(e.rl.length),
-						ix = 0,						
-						sl;					
-					e.tabw = e.tabhide>=pw ? 0 : e.tabw;
-					e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
-					e.tabh = e.tabhide>=pw ? 0 : e.tabh;
-					e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;					
-					for (var i in e.rl) nl[i] = e.rl[i]<window.innerWidth ? 0 : e.rl[i];
-					sl = nl[0];									
-					for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}															
-					var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);					
-
-					newh =  (e.type==="carousel" && e.justify==="true" ? e.gh[ix] : (e.gh[ix] * m)) + (e.tabh + e.thumbh);
-				}			
-				
-				if(window.rs_init_css===undefined) window.rs_init_css = document.head.appendChild(document.createElement("style"));					
-				document.getElementById(e.c).height = newh;
-				window.rs_init_css.innerHTML += "#"+e.c+"_wrapper { height: "+newh+"px }";				
-			} catch(e){
-				console.log("Failure at Presize of Slider:" + e)
-			}					   
+		$script .= 'function setREVStartSize(e){
+			//window.requestAnimationFrame(function() {				 
+				window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;	
+				window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;	
+				try {								
+					var pw = document.getElementById(e.c).parentNode.offsetWidth,
+						newh;
+					pw = pw===0 || isNaN(pw) ? window.RSIW : pw;
+					e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
+					e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
+					e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
+					e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
+					e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
+					e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
+					e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);		
+					if(e.layout==="fullscreen" || e.l==="fullscreen") 						
+						newh = Math.max(e.mh,window.RSIH);					
+					else{					
+						e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+						for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];					
+						e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
+						e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+						for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
+											
+						var nl = new Array(e.rl.length),
+							ix = 0,						
+							sl;					
+						e.tabw = e.tabhide>=pw ? 0 : e.tabw;
+						e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
+						e.tabh = e.tabhide>=pw ? 0 : e.tabh;
+						e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;					
+						for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
+						sl = nl[0];									
+						for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}															
+						var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);					
+						newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
+					}				
+					if(window.rs_init_css===undefined) window.rs_init_css = document.head.appendChild(document.createElement("style"));					
+					document.getElementById(e.c).height = newh+"px";
+					window.rs_init_css.innerHTML += "#"+e.c+"_wrapper { height: "+newh+"px }";				
+				} catch(e){
+					console.log("Failure at Presize of Slider:" + e)
+				}					   
+			//});
 		  };';
 		$script .= '</script>' . "\n";
 		echo apply_filters('revslider_add_setREVStartSize', $script);
+		
+		$revslider_rev_start_size_loaded = true;
 	}
 	
 	/**

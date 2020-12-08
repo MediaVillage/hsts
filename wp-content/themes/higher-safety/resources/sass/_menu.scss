@@ -1,5 +1,25 @@
 
 
+#primary-menu {
+    
+    a {
+        font-family: 'nexa_boldregular';
+    }
+
+    &:hover {
+        color: $primary-color;
+    }
+
+    .sub-menu {
+        background: $primary-color;
+
+        a {
+            color: #fff;
+        }
+    }
+
+}
+
 .course-menu {
 
     .course-menu-title  {
@@ -8,22 +28,27 @@
         h2 {
             color: #fff;
             margin-top: 0;
+            margin-bottom: 0;
             font-size: 25px;
+            font-family: 'nexa_boldregular';
         }
         
     }
-
+    .vc_wp_custommenu {
+        margin-bottom: 0;
+    }
     ul {
         list-style-type: none;
         padding: 0;
         a {
             background: rgb(105,161,80);
-            background: linear-gradient(0deg, rgba(105,161,80,1) 0%, rgba(123,174,83,1) 100%);
+            background: linear-gradient(0deg, rgba(102,174,70,1) 0%, rgba(119,184,67,1) 100%);
             display: block;
-            padding: 15px;
+            padding: 15px 15px;
             color: #fff;
             font-size: 18px;
             font-family: 'nexa_boldregular';
+            line-height: normal;
         }
     }
 }

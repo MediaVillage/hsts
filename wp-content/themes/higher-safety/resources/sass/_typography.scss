@@ -1,18 +1,32 @@
+
+
 body {
-  font-size: 16px !important;
+  font-size: 17px !important;
   font-family: 'nexa_lightregular';
   color: #000;
     @media(max-width: 480px) {
       font-size: 13px; 
     }
-
+  }
  
+  .home h2 {
+    margin-top: 0; 
+  }
 
   a {
     color: $primary-color;
   }
 
-  h1, h2, h3, h4 {
+ 
+
+  h1, h2 {
+    font-family: 'nexa_lightregular';
+    strong {
+      font-family: 'nexa_boldregular';
+    }
+  }
+
+  h3, h4 {
     font-family: 'nexa_boldregular';
   }
 
@@ -22,8 +36,9 @@ body {
     font-weight: bold;
   }
   h2 {
-    font-size: 40px;
+    font-size: 50px;
     font-weight: bold;
+    color: $primary-color;
   }
   h3 {
     font-size: 38px;
@@ -59,8 +74,6 @@ body {
     color: #89ca39;
     font-size:18px; 
   }  
-
-}
 
 
 
