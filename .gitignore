@@ -16,3 +16,4 @@ wp-content/plugins/hello.php
 /vendor
 /node_modules
 .env
+wp-content/themes/hsts
