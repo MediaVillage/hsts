@@ -15,6 +15,14 @@
 
         a {
             color: #fff;
+            background: rgb(105,161,80);
+            background: linear-gradient(0deg, rgba(102,174,70,1) 0%, rgba(119,184,67,1) 100%);
+            border-bottom: 0;
+            padding: 10px 15px;
+            text-transform: none;
+                &:hover {
+                    color: #deffcf;
+                }
         }
     }
 
@@ -49,6 +57,9 @@
             font-size: 18px;
             font-family: 'nexa_boldregular';
             line-height: normal;
+                &:hover {
+                    color: #deffcf;
+                }
         }
     }
 }

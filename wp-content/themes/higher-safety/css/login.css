@@ -54,7 +54,7 @@
 =            Login Styles            =
 ====================================*/
 body.login {
-  background-color: #1c1e26;
+  background-color: #fff;
 }
 body.login input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px #fff inset;
@@ -67,10 +67,10 @@ body.login input:-webkit-autofill:focus {
 }
 
 .login h1 a {
-  background-image: url("../images/logo.png");
+  background-image: url("../images/hsts-logo.jpg");
   width: 100%;
-  height: 32px;
-  background-size: auto 32px;
+  height: 70px;
+  background-size: auto 70px;
 }
 
 .login form input[type=text],

@@ -11846,6 +11846,14 @@ rs-slides .btn, rs-slides .nf-form-wrap .submit-wrap .ninja-forms-field, .nf-for
 }
 #primary-menu .sub-menu a {
   color: #fff;
+  background: #69a150;
+  background: linear-gradient(0deg, #66ae46 0%, #77b843 100%);
+  border-bottom: 0;
+  padding: 10px 15px;
+  text-transform: none;
+}
+#primary-menu .sub-menu a:hover {
+  color: #deffcf;
 }
 
 .course-menu .course-menu-title {
@@ -11875,6 +11883,9 @@ rs-slides .btn, rs-slides .nf-form-wrap .submit-wrap .ninja-forms-field, .nf-for
   font-size: 18px;
   font-family: "nexa_boldregular";
   line-height: normal;
+}
+.course-menu ul a:hover {
+  color: #deffcf;
 }
 
 .RFPostList.Blog {
