@@ -71,3 +71,14 @@ input[type="color"]:focus, textarea:focus { color: $primary-color; }
     width: 100%;
   }
 }
+
+
+.contact-us-form {
+
+  input, textarea {
+    width: 100%;
+  }
+  textarea {
+    height: 208px;
+  }
+}

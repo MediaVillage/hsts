@@ -11624,6 +11624,13 @@ input[type=color]:focus, textarea:focus {
   width: 100%;
 }
 
+.contact-us-form input, .contact-us-form textarea {
+  width: 100%;
+}
+.contact-us-form textarea {
+  height: 208px;
+}
+
 .overflow {
   overflow: visible !important;
 }
