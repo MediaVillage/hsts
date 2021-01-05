@@ -11559,11 +11559,6 @@ a i {
 .wpcf7 label {
   width: 100%;
 }
-.wpcf7 .wpcf7-response-output {
-  position: absolute;
-  margin-top: 0;
-}
-
 label {
   font-family: "nexa_boldregular";
 }
@@ -11629,6 +11624,10 @@ input[type=color]:focus, textarea:focus {
 }
 .contact-us-form textarea {
   height: 208px;
+}
+
+.wpcf7-not-valid-tip {
+  display: none;
 }
 
 .overflow {

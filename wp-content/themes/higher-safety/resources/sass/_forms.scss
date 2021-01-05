@@ -5,8 +5,6 @@
   	}
 
     .wpcf7-response-output {
-      position: absolute;
-      margin-top: 0;
     }  
 
 }
@@ -81,4 +79,8 @@ input[type="color"]:focus, textarea:focus { color: $primary-color; }
   textarea {
     height: 208px;
   }
+}
+
+.wpcf7-not-valid-tip {
+  display: none;
 }
