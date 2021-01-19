@@ -11623,7 +11623,7 @@ input[type=color]:focus, textarea:focus {
   width: 100%;
 }
 .contact-us-form textarea {
-  height: 208px;
+  height: 205px;
 }
 
 .wpcf7-not-valid-tip {
@@ -11638,6 +11638,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.hide {
+  display: none;
+}
+
 .content-row {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -11646,6 +11650,31 @@ html {
 .content-row.narrow {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.content-row.green {
+  background: #4baa44;
+  color: #fff;
+}
+
+.content-row.blue {
+  background: #262262;
+  color: #fff;
+}
+
+.green-box {
+  background: #4baa44;
+  color: #fff;
+  padding: 20px !important;
+}
+.green-box * {
+  color: #fff;
+}
+.green-box ul.ticks li:before {
+  color: #fff;
+}
+.green-box .wpb_text_column strong {
+  color: #fff;
 }
 
 img.left {
@@ -11667,6 +11696,18 @@ img.right {
   margin-top: 0;
 }
 
+.bg-image-row {
+  height: 400px;
+}
+
+/*.flex-5col {
+  ul.ticks {
+    display: flex;
+    li {
+      width: 20%;
+    }
+  }
+}*/
 body {
   font-size: 17px !important;
   font-family: "nexa_lightregular";
@@ -11712,22 +11753,33 @@ h2 {
 h3 {
   font-size: 38px;
   margin-bottom: 50px;
-  color: #89CA39;
+  color: #4baa44;
   font-weight: bold;
 }
 
 h4 {
   font-size: 20px !important;
+  line-height: 1.5em;
 }
 
 .large-text {
   font-size: 20px;
 }
+.large-text ul.ticks {
+  padding-left: 3em;
+}
+.large-text ul.ticks li {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.large-text ul.ticks li:before {
+  font-size: 30px;
+  margin-left: -2em;
+}
 
 ul.ticks {
-  margin-left: 3em;
-  padding-right: 40px;
-  margin-bottom: 40px;
+  margin-left: 0em;
+  margin-bottom: 20px;
 }
 
 ul.ticks li {
@@ -11736,7 +11788,6 @@ ul.ticks li {
   padding-bottom: 8px;
   padding-top: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
 }
 
 ul.ticks li:before {
@@ -11746,6 +11797,21 @@ ul.ticks li:before {
   margin-left: -2em;
   color: #89ca39;
   font-size: 18px;
+}
+
+.wpb_text_column strong {
+  font-family: "nexa_boldregular";
+  color: #4baa44;
+}
+
+.intro-text {
+  font-size: 120%;
+  font-family: "nexa_boldregular";
+  color: #4baa44;
+}
+
+.content-row.green .intro-text {
+  color: #fff;
 }
 
 @font-face {
@@ -11779,7 +11845,7 @@ ul.ticks li:before {
   background: #4baa44;
   color: #fff;
   text-transform: uppercase;
-  padding: 15px 25px;
+  padding: 16px 25px;
   transition: 0.3s;
   box-shadow: none;
   border-radius: 0px;
@@ -11790,6 +11856,15 @@ ul.ticks li:before {
 .btn:hover, .nf-form-wrap .submit-wrap .ninja-forms-field:hover {
   background: #62c84d;
   color: #fff;
+}
+
+.download {
+  background: #e6eed1;
+  text-align: center;
+}
+.download a {
+  display: inline-block;
+  padding: 20px;
 }
 
 rs-slides h1, rs-slides h2 {
@@ -11978,4 +12053,43 @@ rs-slides .btn, rs-slides .nf-form-wrap .submit-wrap .ninja-forms-field, .nf-for
 .wpb-js-composer .vc_tta.vc_tta-accordion .vc_tta-controls-icon-position-left .vc_tta-controls-icon {
   left: auto !important;
   right: 20px !important;
+}
+
+.RFCarousel__item__thumbnail img {
+  height: auto !important;
+}
+
+.owl-nav {
+  display: block !important;
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  overflow: visible;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+.owl-nav .owl-prev {
+  float: left;
+  margin-left: -50px;
+  font-size: 0;
+}
+.owl-nav .owl-prev:before {
+  font-family: "Font Awesome 5 Pro";
+  content: "\F104";
+  font-size: 68px;
+  color: #4baa44;
+  font-weight: 100;
+}
+.owl-nav .owl-next {
+  float: right;
+  margin-right: -50px;
+  font-size: 0;
+}
+.owl-nav .owl-next:before {
+  font-family: "Font Awesome 5 Pro";
+  content: "\F105";
+  font-size: 68px;
+  color: #4baa44;
+  font-weight: 100;
 }

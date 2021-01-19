@@ -43,20 +43,33 @@ body {
   h3 {
     font-size: 38px;
     margin-bottom: 50px;
-    color: #89CA39;
+    color: $primary-color;
     font-weight: bold;
   }
   h4 {
     font-size: 20px !important;
+    line-height: 1.5em;
   }    
   .large-text {
     font-size: 20px;
+
+    ul.ticks {
+      padding-left: 3em;
+      li {
+      padding-top: 20px;
+      padding-bottom: 20px;
+        &:before {
+          font-size: 30px;
+          margin-left: -2em;
+        }
+     }
+    }
+
   }  
 
   ul.ticks {
-    margin-left: 3em;
-    padding-right: 40px;
-    margin-bottom: 40px;
+    margin-left: 0em;
+    margin-bottom: 20px;
   }
   ul.ticks li {
     list-style: none;
@@ -64,7 +77,7 @@ body {
     padding-bottom: 8px;
     padding-top: 8px;
     border-bottom: 1px solid rgba(255,255,255,0.2);
-    color: #fff;
+
   }
   ul.ticks li:before {
     content: '\f00c';
@@ -74,6 +87,30 @@ body {
     color: #89ca39;
     font-size:18px; 
   }  
+
+
+
+  .wpb_text_column strong {
+    font-family: 'nexa_boldregular';
+    color: $primary-color;
+  }
+
+
+.intro-text {
+  font-size: 120%;
+  font-family: 'nexa_boldregular';
+  color: $primary-color;
+}
+
+
+
+.content-row.green {
+  
+  .intro-text {
+    color: #fff;
+  }
+}
+
 
 
 

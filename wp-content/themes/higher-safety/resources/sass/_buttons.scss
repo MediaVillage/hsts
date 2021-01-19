@@ -2,7 +2,7 @@
   background: $primary-color;
   color: #fff;
   text-transform: uppercase;
-  padding: 15px 25px;
+  padding: 16px 25px;
   transition: 0.3s;
   box-shadow: none;
   border-radius: 0px;
@@ -26,3 +26,11 @@
 
 
 
+.download {
+  background: #e6eed1;
+  text-align: center;
+  a {
+    display: inline-block;
+    padding: 20px;
+  }
+}

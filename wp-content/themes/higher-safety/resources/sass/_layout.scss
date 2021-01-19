@@ -8,6 +8,32 @@
   padding-bottom: 50px;
 }
 
+.content-row.green {
+  background: $primary-color;
+  color: #fff;
+}
+
+.content-row.blue {
+  background: $secondary-color;
+  color: #fff;
+}
+
+.green-box {
+  background: $primary-color;
+  color: #fff;
+  padding: 20px !important;
+
+  * {
+    color: #fff;
+  }
+  ul.ticks li:before {
+    color: #fff;
+  }
+  .wpb_text_column strong {
+    color: #fff;
+  }
+}
+
 img.left {
   margin-right: 30px;
 }
@@ -28,3 +54,17 @@ img.right {
   }
 }
 
+
+
+.bg-image-row {
+  height: 400px;
+}
+
+/*.flex-5col {
+  ul.ticks {
+    display: flex;
+    li {
+      width: 20%;
+    }
+  }
+}*/

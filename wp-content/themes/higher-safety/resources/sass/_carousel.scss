@@ -1,0 +1,42 @@
+
+
+.RFCarousel__item__thumbnail {
+    img {
+        height: auto !important;
+    } 
+}
+
+.owl-nav { 
+    display: block !important; 
+    width: 100%; 
+    margin: 0 auto; 
+    position: absolute; 
+    top: 50%; 
+    overflow: visible; 
+    transform: translateY(-50%); 
+    z-index: 0;
+        .owl-prev { 
+            float: left; 
+            margin-left: -50px;
+            font-size: 0;
+                &:before { 
+                    font-family: "Font Awesome 5 Pro"; 
+                    content: "\f104"; 
+                    font-size: 68px; 
+                    color: $primary-color; 
+                    font-weight: 100;
+                }
+        }
+        .owl-next { 
+            float: right; 
+            margin-right: -50px;
+            font-size: 0;
+                &:before { 
+                    font-family: "Font Awesome 5 Pro"; 
+                    content: "\f105"; 
+                    font-size: 68px; 
+                    color: $primary-color; 
+                    font-weight: 100;
+                }
+        }
+}

@@ -7853,9 +7853,9 @@ __webpack_require__(/*! ../../../redferntheme/resources/js/main */ "../redfernth
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/LOCALWEBPROOFS/hsts/wp-content/themes/higher-safety/resources/js/main.js */"./resources/js/main.js");
-__webpack_require__(/*! /Applications/MAMP/htdocs/LOCALWEBPROOFS/hsts/wp-content/themes/higher-safety/resources/sass/style.scss */"./resources/sass/style.scss");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/LOCALWEBPROOFS/hsts/wp-content/themes/higher-safety/resources/sass/login.scss */"./resources/sass/login.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/hsts/wp-content/themes/higher-safety/resources/js/main.js */"./resources/js/main.js");
+__webpack_require__(/*! /Applications/MAMP/htdocs/hsts/wp-content/themes/higher-safety/resources/sass/style.scss */"./resources/sass/style.scss");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/hsts/wp-content/themes/higher-safety/resources/sass/login.scss */"./resources/sass/login.scss");
 
 
 /***/ })
