@@ -110,10 +110,10 @@ img.right {
 }
 
 .package-box {
-  background: $secondary-color;
+  /*background: $secondary-color;*/
   border: 7px solid $primary-color;
   padding: 40px;
-  border-radius: 100%;
+  /*border-radius: 100%;*/
 
   h3 {
     margin-top: 0;
@@ -124,7 +124,7 @@ img.right {
     margin-bottom: 0;
   }
 
-  * {
+  /* {
     color: #fff;
-  }
+  }*/
 }

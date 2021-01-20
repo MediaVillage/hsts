@@ -56,3 +56,22 @@ rs-slides .btn {
     background: #fff !important;
   }
 } 
+
+
+/* fix sizing/overlapping with the slides */
+
+@media(max-width: 1350px) {
+  #slider-2-slide-3-layer-15 {
+    width: 308px !important;
+    height: 400px !important;
+  }
+  #slider-2-slide-3-layer-16 {
+    width: 400px !important;
+    height: 220px !important;
+    margin-top: 70px !important;
+  }
+  #slider-2-slide-3-layer-17 {
+    width: 400px !important;
+    height: 400px !important;
+  }
+}
