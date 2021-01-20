@@ -10,6 +10,7 @@
 
 .content-row.green {
   background: $primary-color;
+  background: linear-gradient(90deg, #41ad49 0%, #95c11f 100%) !important;
   color: #fff;
 }
 
@@ -55,6 +56,10 @@ img.right {
 }
 
 
+.page-id-524 .banner {
+  background-size: 50%, cover !important;
+}
+
 
 .bg-image-row {
   height: 400px;
@@ -68,3 +73,58 @@ img.right {
     }
   }
 }*/
+
+
+.cta {
+  background: rgb(149,193,31,1) !important;
+  background: linear-gradient(90deg, rgba(65,173,73,1) 0%, rgba(149,193,31,1) 100%) !important;
+  padding: 40px;
+  color: #fff;
+
+  a {
+    color: #fff !important;
+  }
+
+  strong {
+    color: #fff !important;
+  }
+
+  .wpb_text_column {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    color: #fff;
+    margin: 0;
+  }
+}
+
+.circle {
+  background: linear-gradient(90deg, rgba(65,173,73,1) 0%, rgba(149,193,31,1) 100%);
+  border-radius: 100%;
+  overflow: hidden;
+  img {
+      padding: 15px;    
+      border-radius: 100%;
+  }
+}
+
+.package-box {
+  background: $secondary-color;
+  border: 7px solid $primary-color;
+  padding: 40px;
+  border-radius: 100%;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 40px;
+  }
+  h4 {
+    margin-bottom: 0;
+  }
+
+  * {
+    color: #fff;
+  }
+}

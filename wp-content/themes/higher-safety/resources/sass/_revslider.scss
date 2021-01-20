@@ -27,13 +27,18 @@ rs-slides .btn {
 }
 
 
-#rev_slider_2_1_wrapper {
+#rev_slider_2_1_wrapper, #rev_slider_4_1_wrapper {
   background: rgb(149,193,31,1) !important;
   background: linear-gradient(90deg, rgba(65,173,73,1) 0%, rgba(149,193,31,1) 100%) !important;
 
   h2 {
     text-transform: none !important;
     font-size: 70px !important;
+    letter-spacing: 1px !important;
+  }
+  h1 {
+    text-transform: none !important;
+    font-size: 50px !important;
     letter-spacing: 1px !important;
   }
 }

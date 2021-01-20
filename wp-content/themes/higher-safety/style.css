@@ -11654,6 +11654,7 @@ html {
 
 .content-row.green {
   background: #4baa44;
+  background: linear-gradient(90deg, #41ad49 0%, #95c11f 100%) !important;
   color: #fff;
 }
 
@@ -11696,6 +11697,10 @@ img.right {
   margin-top: 0;
 }
 
+.page-id-524 .banner {
+  background-size: 50%, cover !important;
+}
+
 .bg-image-row {
   height: 400px;
 }
@@ -11708,6 +11713,54 @@ img.right {
     }
   }
 }*/
+.cta {
+  background: #95c11f !important;
+  background: linear-gradient(90deg, #41ad49 0%, #95c11f 100%) !important;
+  padding: 40px;
+  color: #fff;
+}
+.cta a {
+  color: #fff !important;
+}
+.cta strong {
+  color: #fff !important;
+}
+.cta .wpb_text_column {
+  margin-bottom: 0;
+}
+.cta h4 {
+  color: #fff;
+  margin: 0;
+}
+
+.circle {
+  background: linear-gradient(90deg, #41ad49 0%, #95c11f 100%);
+  border-radius: 100%;
+  overflow: hidden;
+}
+.circle img {
+  padding: 15px;
+  border-radius: 100%;
+}
+
+.package-box {
+  background: #262262;
+  border: 7px solid #4baa44;
+  padding: 40px;
+  border-radius: 100%;
+}
+.package-box h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+.package-box h4 {
+  margin-bottom: 0;
+}
+.package-box * {
+  color: #fff;
+}
+
 body {
   font-size: 17px !important;
   font-family: "nexa_lightregular";
@@ -11760,6 +11813,7 @@ h3 {
 h4 {
   font-size: 20px !important;
   line-height: 1.5em;
+  color: #262262;
 }
 
 .large-text {
@@ -11896,13 +11950,18 @@ rs-slides .btn, rs-slides .nf-form-wrap .submit-wrap .ninja-forms-field, .nf-for
   padding: 10px 20px;
 }
 
-#rev_slider_2_1_wrapper {
+#rev_slider_2_1_wrapper, #rev_slider_4_1_wrapper {
   background: #95c11f !important;
   background: linear-gradient(90deg, #41ad49 0%, #95c11f 100%) !important;
 }
-#rev_slider_2_1_wrapper h2 {
+#rev_slider_2_1_wrapper h2, #rev_slider_4_1_wrapper h2 {
   text-transform: none !important;
   font-size: 70px !important;
+  letter-spacing: 1px !important;
+}
+#rev_slider_2_1_wrapper h1, #rev_slider_4_1_wrapper h1 {
+  text-transform: none !important;
+  font-size: 50px !important;
   letter-spacing: 1px !important;
 }
 
@@ -11924,6 +11983,14 @@ rs-slides .btn, rs-slides .nf-form-wrap .submit-wrap .ninja-forms-field, .nf-for
 }
 #primary-menu .sub-menu {
   background: #4baa44;
+}
+#primary-menu .sub-menu li > .sub-menu {
+  margin-left: 2px;
+}
+#primary-menu .sub-menu li > .sub-menu a {
+  font-size: 14px;
+  padding: 10px;
+  line-height: 1.4;
 }
 #primary-menu .sub-menu a {
   color: #fff;
@@ -12017,6 +12084,7 @@ rs-slides .btn, rs-slides .nf-form-wrap .submit-wrap .ninja-forms-field, .nf-for
 .vc_tta-panel-heading {
   background-color: #262262 !important;
   border-radius: 0 !important;
+  border: none !important;
 }
 
 .vc_tta-panel.vc_active .vc_tta-panel-heading {
