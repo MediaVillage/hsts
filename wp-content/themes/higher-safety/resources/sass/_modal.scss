@@ -1,0 +1,62 @@
+
+
+
+#SearchModal {
+        .modal-dialog { 
+            margin: 0; 
+            width: 100%; 
+            top: 0%;
+        }	
+        .modal-content { 
+            background: $secondary-color; 
+            color: #fff; 
+            padding: 40px; 
+            width: 100%; 
+            margin: 0 auto; 
+            border-radius: 0;
+        }
+        .modal-header { 
+            padding: 0; 
+            border: 0; 
+            margin-bottom: 30px;
+        }
+        .modal-title { 
+            font-family: 'psgbold'; 
+            clear: none; 
+            float: left; 
+            font-weight: normal;
+        }
+        .close { 
+            color: #fff; 
+            text-shadow: none; 
+            opacity: 1; 
+            float: right;
+        }
+        .modal-body { 
+            padding: 0;
+        }	
+        .search-form { 
+            display: flex; 
+        }
+        .search-field { 
+            border: none; 
+            line-height: 1.4; 
+            padding: 16px 25px; 
+            width: 80%; 
+            float: left;
+            margin: 0;
+        }
+        .btn { 
+            border: none; 
+            background-color: $primary-color; 
+            color: #fff; 
+            width: 20%; 
+            float: left;
+            &:hover { 
+            }
+        }
+}
+
+/* fix for z-index issue with the modals */
+
+/*.modal-backdrop { z-index: 0;}*/

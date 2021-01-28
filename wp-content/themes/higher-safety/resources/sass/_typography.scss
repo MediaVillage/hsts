@@ -68,6 +68,11 @@ body {
 
   }  
 
+  .search-results h2 {
+    font-size: 30px;
+    margin-top: 0;
+  }
+
   ul.ticks {
     margin-left: 0em;
     margin-bottom: 20px;
@@ -114,7 +119,12 @@ body {
 
 
 
-
+a {
+  
+  &:hover, &:focus, &:active {
+    color: $secondary-color;
+  }
+}
 
 
 @font-face {

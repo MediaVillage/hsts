@@ -26,10 +26,10 @@
 			
 			<div class="footer-main">
 				<div class="row">
-					<div class="col-sm-3 footer-1">
+					<div class="col-sm-1 footer-1">
 						<?php dynamic_sidebar( 'footer-1' ); ?>
 					</div>
-					<div class="col-sm-3 footer-2">
+					<div class="col-sm-offset-1 col-sm-3 footer-2">
 						<?php dynamic_sidebar( 'footer-2' ); ?>
 					</div>
 					<div class="col-sm-3 footer-3">
@@ -52,3 +52,18 @@
 </body>
 </html>
  
+
+
+ <!-- Header Search Modal Content -->
+<div id="SearchModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+        <input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'rf-wpml' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+    <button type="submit" class="search-submit btn"><i class="fa fa-search"></i></button>
+</form>
+            </div>
+        </div>
+    </div>
+</div>

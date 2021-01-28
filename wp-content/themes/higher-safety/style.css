@@ -11496,7 +11496,7 @@ a i {
   padding-bottom: 30px !important;
   padding-left: 40px;
   padding-right: 40px;
-  border-bottom: 2px solid #d1d2d4;
+  /*border-bottom: 2px solid #d1d2d4;*/
 }
 .accreditations .widget {
   padding: 15px;
@@ -11504,28 +11504,35 @@ a i {
 }
 
 .site-footer ul.menu li.current-menu-item a {
-  color: #262262;
+  color: #fff;
 }
 
 .site-footer {
-  background: transparent;
+  background: #95c11f !important;
+  background: linear-gradient(90deg, #41ad49 0%, #95c11f 100%) !important;
   color: #000;
-  padding: 60px 0;
+  padding: 30px 0;
   font-size: 16px;
+  line-height: 2em;
 }
 .site-footer .container {
   display: flex;
   justify-content: space-between;
   padding: 0;
 }
+.site-footer a {
+  color: #fff;
+  font-size: 14px;
+}
 .site-footer a:hover {
-  color: #4baa44;
+  color: #262262;
 }
 .site-footer .footer-1 {
   font-size: 13px;
 }
 .site-footer .footer-1 img {
-  max-width: 200px !important;
+  margin-top: -70px;
+  max-width: 100px !important;
   height: auto !important;
 }
 .site-footer .footer-2 {
@@ -11533,9 +11540,21 @@ a i {
 }
 .site-footer .footer-4 input {
   text-align: center;
+  padding: 10px 25px;
+  margin-bottom: 7px;
+  line-height: 1.3em;
+}
+.site-footer .footer-4 .btn, .site-footer .footer-4 .nf-form-wrap .submit-wrap .ninja-forms-field, .nf-form-wrap .submit-wrap .site-footer .footer-4 .ninja-forms-field {
+  background: #262262;
+}
+.site-footer .footer-4 div.wpcf7 .ajax-loader {
+  position: absolute;
+}
+.site-footer .footer-4 .wpcf7-response-output {
+  background: #fff;
 }
 .site-footer a {
-  color: #262262;
+  color: #fff;
   font-weight: bold;
   font-family: "nexa_boldregular";
 }
@@ -11559,6 +11578,10 @@ a i {
 .wpcf7 label {
   width: 100%;
 }
+.wpcf7 .wpcf7-response-output {
+  margin: 10px 0 !important;
+}
+
 label {
   font-family: "nexa_boldregular";
 }
@@ -11697,6 +11720,11 @@ img.right {
   margin-top: 0;
 }
 
+.search-results .banner {
+  background: #95c11f !important;
+  background: linear-gradient(90deg, #41ad49 0%, #95c11f 100%) !important;
+}
+
 .page-id-524 .banner {
   background-size: 50%, cover !important;
 }
@@ -11759,6 +11787,14 @@ img.right {
 }
 .package-box h4 {
   margin-bottom: 0;
+}
+
+.search-results article {
+  padding: 40px 0;
+  border-bottom: 1px solid #eee;
+}
+.search-results .entry-header {
+  padding: 0 !important;
 }
 
 body {
@@ -11831,6 +11867,11 @@ h4 {
   margin-left: -2em;
 }
 
+.search-results h2 {
+  font-size: 30px;
+  margin-top: 0;
+}
+
 ul.ticks {
   margin-left: 0em;
   margin-bottom: 20px;
@@ -11866,6 +11907,10 @@ ul.ticks li:before {
 
 .content-row.green .intro-text {
   color: #fff;
+}
+
+a:hover, a:focus, a:active {
+  color: #262262;
 }
 
 @font-face {
@@ -12187,3 +12232,57 @@ rs-slides .btn, rs-slides .nf-form-wrap .submit-wrap .ninja-forms-field, .nf-for
   color: #4baa44;
   font-weight: 100;
 }
+
+#SearchModal .modal-dialog {
+  margin: 0;
+  width: 100%;
+  top: 0%;
+}
+#SearchModal .modal-content {
+  background: #262262;
+  color: #fff;
+  padding: 40px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 0;
+}
+#SearchModal .modal-header {
+  padding: 0;
+  border: 0;
+  margin-bottom: 30px;
+}
+#SearchModal .modal-title {
+  font-family: "psgbold";
+  clear: none;
+  float: left;
+  font-weight: normal;
+}
+#SearchModal .close {
+  color: #fff;
+  text-shadow: none;
+  opacity: 1;
+  float: right;
+}
+#SearchModal .modal-body {
+  padding: 0;
+}
+#SearchModal .search-form {
+  display: flex;
+}
+#SearchModal .search-field {
+  border: none;
+  line-height: 1.4;
+  padding: 16px 25px;
+  width: 80%;
+  float: left;
+  margin: 0;
+}
+#SearchModal .btn, #SearchModal .nf-form-wrap .submit-wrap .ninja-forms-field, .nf-form-wrap .submit-wrap #SearchModal .ninja-forms-field {
+  border: none;
+  background-color: #4baa44;
+  color: #fff;
+  width: 20%;
+  float: left;
+}
+/* fix for z-index issue with the modals */
+/*.modal-backdrop { z-index: 0;}*/

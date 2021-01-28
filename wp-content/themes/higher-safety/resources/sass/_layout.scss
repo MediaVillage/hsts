@@ -55,6 +55,10 @@ img.right {
   }
 }
 
+.search-results .banner {
+  background: /*url(images/HS_Course_header_logos.png) no-repeat right center*/ rgb(149,193,31,1) !important;
+  background: /*url(images/HS_Course_header_logos.png) no-repeat right center, */linear-gradient(90deg, rgba(65,173,73,1) 0%, rgba(149,193,31,1) 100%) !important;
+}
 
 .page-id-524 .banner {
   background-size: 50%, cover !important;
@@ -127,4 +131,15 @@ img.right {
   /* {
     color: #fff;
   }*/
+}
+
+
+.search-results {
+  article {
+    padding: 40px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .entry-header {
+    padding: 0 !important;
+  }
 }
