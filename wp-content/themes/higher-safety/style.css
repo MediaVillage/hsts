@@ -11995,16 +11995,16 @@ rs-slides .btn, rs-slides .nf-form-wrap .submit-wrap .ninja-forms-field, .nf-for
   padding: 10px 20px;
 }
 
-#rev_slider_2_1_wrapper, #rev_slider_4_1_wrapper {
+#rev_slider_2_1_wrapper, #rev_slider_4_1_wrapper, #rev_slider_5_1_wrapper {
   background: #95c11f !important;
   background: linear-gradient(90deg, #41ad49 0%, #95c11f 100%) !important;
 }
-#rev_slider_2_1_wrapper h2, #rev_slider_4_1_wrapper h2 {
+#rev_slider_2_1_wrapper h2, #rev_slider_4_1_wrapper h2, #rev_slider_5_1_wrapper h2 {
   text-transform: none !important;
   font-size: 70px !important;
   letter-spacing: 1px !important;
 }
-#rev_slider_2_1_wrapper h1, #rev_slider_4_1_wrapper h1 {
+#rev_slider_2_1_wrapper h1, #rev_slider_4_1_wrapper h1, #rev_slider_5_1_wrapper h1 {
   text-transform: none !important;
   font-size: 50px !important;
   letter-spacing: 1px !important;
