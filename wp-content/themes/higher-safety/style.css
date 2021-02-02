@@ -12147,6 +12147,10 @@ rs-slides .btn, rs-slides .nf-form-wrap .submit-wrap .ninja-forms-field, .nf-for
 .single .byline {
   display: none;
 }
+.single img {
+  max-width: 100%;
+  height: 100%;
+}
 
 .vc_tta.vc_general .vc_tta-panel {
   margin-bottom: 10px;

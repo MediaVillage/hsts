@@ -10244,9 +10244,9 @@ __webpack_require__(/*! bootstrap-sass */ "./node_modules/bootstrap-sass/assets/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/hsts/wp-content/themes/higher-safety/resources/js/main.js */"./resources/js/main.js");
-__webpack_require__(/*! /Applications/MAMP/htdocs/hsts/wp-content/themes/higher-safety/resources/sass/style.scss */"./resources/sass/style.scss");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/hsts/wp-content/themes/higher-safety/resources/sass/login.scss */"./resources/sass/login.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/LOCALWEBPROOFS/hsts/wp-content/themes/higher-safety/resources/js/main.js */"./resources/js/main.js");
+__webpack_require__(/*! /Applications/MAMP/htdocs/LOCALWEBPROOFS/hsts/wp-content/themes/higher-safety/resources/sass/style.scss */"./resources/sass/style.scss");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/LOCALWEBPROOFS/hsts/wp-content/themes/higher-safety/resources/sass/login.scss */"./resources/sass/login.scss");
 
 
 /***/ })
