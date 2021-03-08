@@ -95,4 +95,5 @@ add_action( 'after_setup_theme', 'ab_after_setup' );
 function ab_after_setup()
 {
     add_image_size( 'blog_thumb', 400, 250, true );
+    add_image_size( 'circle', 1000, 1000, true );
 }
