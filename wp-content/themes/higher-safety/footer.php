@@ -14,8 +14,11 @@
 	</div><!-- #content -->
 
 
-		<div class="accreditations content-row narrow">
+		<div class="pasma content-row narrow">
 			<?php dynamic_sidebar( 'pasma' ); ?>
+		</div>
+
+		<div class="accreditations content-row narrow">
 			<?php dynamic_sidebar( 'accreditations' ); ?>
 		</div>
 
