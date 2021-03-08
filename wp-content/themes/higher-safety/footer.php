@@ -15,6 +15,7 @@
 
 
 		<div class="accreditations content-row narrow">
+			<?php dynamic_sidebar( 'pasma' ); ?>
 			<?php dynamic_sidebar( 'accreditations' ); ?>
 		</div>
 

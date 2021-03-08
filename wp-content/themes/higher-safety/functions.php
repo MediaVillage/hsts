@@ -36,6 +36,15 @@ if ( ! function_exists('rftheme_widgets_init') ) {
             'before_title'  => '<h3 class="widget-title">',
             'after_title'   => '</h3>',
 		) );
+        register_sidebar( array(
+            'name'          => esc_html__( 'Pasma', 'rftheme' ),
+            'id'            => 'pasma',
+            'description'   => esc_html__( 'Add widgets here.', 'rftheme' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h4 class="widget-title">',
+            'after_title'   => '</h4>',
+        ) );
 		register_sidebar( array(
             'name'          => esc_html__( 'Accreditations', 'rftheme' ),
             'id'            => 'accreditations',
