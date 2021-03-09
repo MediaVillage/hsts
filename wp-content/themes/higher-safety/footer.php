@@ -14,6 +14,10 @@
 	</div><!-- #content -->
 
 
+		<div class="testimonials content-row narrow">
+			<?php dynamic_sidebar( 'testimonials' ); ?>
+		</div>
+
 		<div class="pasma content-row narrow">
 			<?php dynamic_sidebar( 'pasma' ); ?>
 		</div>
