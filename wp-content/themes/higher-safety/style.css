@@ -11487,6 +11487,32 @@ a i {
   font-weight: bold;
 }
 
+.testimonials {
+  /*background: rgb(149,193,31,1) !important;
+  background: linear-gradient(90deg, rgba(65,173,73,1) 0%, rgba(149,193,31,1) 100%) !important;*/
+  background: #262262;
+  text-align: center;
+  color: #fff;
+  font-family: "nexa_lightregular";
+}
+.testimonials .RFCarousel:before {
+  content: "\F10D";
+  color: #4baa44;
+  font-size: 40px;
+  font-family: "Font Awesome 5 Pro";
+  font-weight: bold;
+}
+.testimonials .RFCarousel__item__inner {
+  padding: 0 60px;
+}
+.testimonials .RFCarousel__item__title {
+  font-size: 90%;
+  font-family: "nexa_boldregular";
+}
+.testimonials .owl-nav .owl-prev:before, .testimonials .owl-nav .owl-next:before {
+  color: #fff;
+}
+
 .pasma {
   padding-bottom: 0 !important;
   display: flex;

@@ -37,8 +37,8 @@ if ( ! function_exists('rftheme_widgets_init') ) {
             'after_title'   => '</h3>',
 		) );
         register_sidebar( array(
-            'name'          => esc_html__( 'Testimonals', 'rftheme' ),
-            'id'            => 'testimonals',
+            'name'          => esc_html__( 'Testimonials', 'rftheme' ),
+            'id'            => 'testimonials',
             'description'   => esc_html__( 'Add widgets here.', 'rftheme' ),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section>',

@@ -1,3 +1,37 @@
+
+.testimonials {
+    /*background: rgb(149,193,31,1) !important;
+  	background: linear-gradient(90deg, rgba(65,173,73,1) 0%, rgba(149,193,31,1) 100%) !important;*/
+	background: $secondary-color;
+	text-align: center;
+	color: #fff;
+	font-family: 'nexa_lightregular';
+
+	.RFCarousel:before {
+        content: "\f10d";
+        color: $primary-color;
+        font-size: 40px;
+        font-family: "Font Awesome 5 Pro";
+		font-weight: bold;
+    }
+
+	.RFCarousel__item__inner {
+		padding: 0 60px;
+	}
+
+	.RFCarousel__item__title {
+		font-size: 90%;
+		font-family: 'nexa_boldregular';
+	}
+	
+	.owl-nav {
+		.owl-prev:before, .owl-next:before {
+			color: #fff;
+		}
+	}
+}
+
+
 .pasma {
 	padding-bottom: 0 !important;
     display: flex;
