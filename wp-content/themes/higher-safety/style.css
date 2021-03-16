@@ -11797,6 +11797,7 @@ img.right {
   background: linear-gradient(90deg, #41ad49 0%, #95c11f 100%);
   border-radius: 100%;
   overflow: hidden;
+  display: table;
 }
 .circle img {
   padding: 15px;
