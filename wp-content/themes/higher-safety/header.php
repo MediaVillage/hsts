@@ -17,6 +17,10 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 
 <?php wp_head(); ?>
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css" integrity="sha384-ekOryaXPbeCpWQNxMwSWVvQ0+1VrStoPJq54shlYhR8HzQgig1v5fas6YgOqLoKz" crossorigin="anonymous">
+
+
 </head>
 
 <body <?php body_class(); ?>>
