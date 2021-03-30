@@ -19,6 +19,9 @@
             float: left; 
             margin-left: -50px;
             font-size: 0;
+            @media(max-width: 992px) {
+                margin-left: 0px;
+            }
                 &:before { 
                     font-family: "Font Awesome 5 Pro"; 
                     content: "\f104"; 
@@ -31,6 +34,9 @@
             float: right; 
             margin-right: -50px;
             font-size: 0;
+            @media(max-width: 992px) {
+                margin-right: 0px;
+            }
                 &:before { 
                     font-family: "Font Awesome 5 Pro"; 
                     content: "\f105"; 

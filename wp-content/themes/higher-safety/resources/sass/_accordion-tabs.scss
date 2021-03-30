@@ -22,6 +22,9 @@
     padding-right: 80px !important;
     font-size: 19px;
     line-height: 1.4em;
+    @media(max-width: 480px) {
+        font-size: 16px;
+    }
 
     i {
         &:before, &:after {

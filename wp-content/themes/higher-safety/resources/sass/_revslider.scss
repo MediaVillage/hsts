@@ -5,6 +5,9 @@ rs-slides h1, rs-slides h2 {
   letter-spacing: 10px !important;
   text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
   color: #fff !important;
+  @media(max-width: 1200px) {
+    font-size: 60px !important;
+  }
 }
 
 rs-slides h1 span, rs-slides h2 span {
@@ -35,11 +38,23 @@ rs-slides .btn {
     text-transform: none !important;
     font-size: 70px !important;
     letter-spacing: 1px !important;
+    @media(max-width: 1200px) {
+      font-size: 50px !important;
+    }
+    @media(max-width: 767px) {
+      font-size: 30px !important;
+    }
   }
   h1 {
     text-transform: none !important;
     font-size: 50px !important;
     letter-spacing: 1px !important;
+    @media(max-width: 1200px) {
+      font-size: 40px !important;
+    }
+    @media(max-width: 767px) {
+      font-size: 20px !important;
+    }
   }
 }
 
@@ -60,7 +75,7 @@ rs-slides .btn {
 
 /* fix sizing/overlapping with the slides */
 
-@media(max-width: 1350px) {
+@media(min-width: 880px) and (max-width: 1350px) {
   #slider-2-slide-3-layer-15 {
     width: 308px !important;
     height: 400px !important;

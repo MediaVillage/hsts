@@ -20,6 +20,9 @@ input, textarea {
   max-width: 100%;
   margin-bottom: 15px;
   font-family: 'nexa_boldregular';
+  @media(max-width: 480px) {
+    padding: 10px 15px;
+  }
 }
 
 
@@ -64,6 +67,9 @@ input[type="color"]:focus, textarea:focus { color: $primary-color; }
   label {
     color: $primary-color;
     font-size: 18px;
+    @media(max-width: 480px) {
+      font-size: 15px;
+    }
   }
 
   textarea {

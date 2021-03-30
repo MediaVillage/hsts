@@ -48,7 +48,6 @@
 
 
 				</nav><!-- #site-navigation -->
-			</div>
 
 				<div class="mobile-menu-button">
 					<div id="menu-toggle">
@@ -63,6 +62,10 @@
 						</div>
 					</div>
 				</div>
+				
+			</div>
+
+
 				
 
 		</div>

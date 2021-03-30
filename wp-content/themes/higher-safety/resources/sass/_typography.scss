@@ -5,7 +5,7 @@ body {
   font-family: 'nexa_lightregular';
   color: #000;
     @media(max-width: 480px) {
-      font-size: 13px; 
+      font-size: 14px !important; 
     }
   }
  
@@ -34,25 +34,41 @@ body {
     font-size: 50px;
     margin-bottom: 0 !important;
     font-weight: bold;
+    color: $primary-color;
+    @media(max-width: 480px) {
+      font-size: 30px; 
+    }
   }
   h2 {
     font-size: 50px;
     font-weight: bold;
     color: $primary-color;
+    @media(max-width: 480px) {
+      font-size: 30px; 
+    }
   }
   h3 {
     font-size: 38px;
     margin-bottom: 50px;
     color: $primary-color;
     font-weight: bold;
+    @media(max-width: 480px) {
+      font-size: 25px; 
+    }
   }
   h4 {
     font-size: 20px !important;
     line-height: 1.5em;
     color: $secondary-color;
+    @media(max-width: 480px) {
+      font-size: 15px !important; 
+    }
   }    
   .large-text {
     font-size: 20px;
+    @media(max-width: 480px) {
+      font-size: 16px;
+    }
 
     ul.ticks {
       padding-left: 3em;
@@ -62,6 +78,10 @@ body {
         &:before {
           font-size: 30px;
           margin-left: -2em;
+          @media(max-width: 480px) {
+            font-size: 20px;
+            margin-left: -1.5em;
+          }
         }
      }
     }

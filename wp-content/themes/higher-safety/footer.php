@@ -36,16 +36,16 @@
 			
 			<div class="footer-main">
 				<div class="row">
-					<div class="col-sm-1 footer-1">
+					<div class="col-md-12 col-lg-1 footer-1">
 						<?php dynamic_sidebar( 'footer-1' ); ?>
 					</div>
-					<div class="col-sm-offset-1 col-sm-3 footer-2">
+					<div class="col-md-4 col-lg-offset-1 col-lg-4 footer-2">
 						<?php dynamic_sidebar( 'footer-2' ); ?>
 					</div>
-					<div class="col-sm-3 footer-3">
+					<div class="col-md-4 col-lg-2 footer-3">
 						<?php dynamic_sidebar( 'footer-3' ); ?>
 					</div>
-					<div class="col-sm-3 footer-4">
+					<div class="col-md-4 col-lg-3 footer-4">
 						<?php dynamic_sidebar( 'footer-4' ); ?> 
 					</div>					
 				</div>

@@ -1,11 +1,19 @@
 .content-row {
   padding-top: 100px;
   padding-bottom: 100px;
+  @media(max-width: 767px) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 }
 
 .content-row.narrow {
   padding-top: 50px;
   padding-bottom: 50px;
+  @media(max-width: 767px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 }
 
 .content-row.green {
@@ -48,10 +56,21 @@ img.right {
   background: url(images/HS_Course_header_logos.png) no-repeat right center, linear-gradient(90deg, rgba(65,173,73,1) 0%, rgba(149,193,31,1) 100%) !important;
   background-size: 60%, cover !important;
   padding: 40px 0;
+  @media(max-width: 767px) {
+    background-size: 50%, cover !important;
+  }
+  @media(max-width: 480px) {
+    background: rgb(149,193,31,1) !important;
+    background: linear-gradient(90deg, rgba(65,173,73,1) 0%, rgba(149,193,31,1) 100%) !important;
+    padding: 20px 0;
+  }
 
   h1, h2 {
     color: #fff;
     margin-top: 0;
+    @media(max-width: 480px) {
+      font-size: 30px;
+    }
   }
 }
 
@@ -65,8 +84,14 @@ img.right {
 }
 
 
-.bg-image-row {
+.bg-image-row .vc_column-inner {
   height: 400px;
+  @media(max-width: 992px) {
+    height: 300px;
+  }
+  @media(max-width: 767px) {
+    height: 200px;
+  }
 }
 
 /*.flex-5col {
@@ -78,12 +103,26 @@ img.right {
   }
 }*/
 
+.masks {
+  @media(max-width: 767px) {
+    .vc_col-sm-2 {
+      width: 50% !important;
+      float: left;
+    }
+  }
+}
 
 .cta {
   background: rgb(149,193,31,1) !important;
   background: linear-gradient(90deg, rgba(65,173,73,1) 0%, rgba(149,193,31,1) 100%) !important;
   padding: 40px;
   color: #fff;
+  @media(max-width: 480px) {
+    padding: 20px;
+    h4 {
+      font-size: 14px !important;
+    }
+  }
 
   a {
     color: #fff !important;

@@ -6,6 +6,13 @@
     .RFPostList__item {
         width: 48%;
         margin-bottom: 50px;
+        @media(max-width: 767px) {
+            width: 100%;
+            margin-bottom: 30px;
+            .btn {
+                width: auto;
+            }
+        }
 
         h3 {
             color: $secondary-color;
@@ -31,6 +38,13 @@
 .home .RFPostList.Blog .RFPostList__item {
     width: 31%;
     margin-bottom: 0;
+    @media(max-width: 767px) {
+        width: 100%;
+        margin-bottom: 30px;
+        .btn {
+            width: auto;
+        }
+    }
 }
 
 .single {

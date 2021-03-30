@@ -45,6 +45,9 @@
             width: 80%; 
             float: left;
             margin: 0;
+            @media(max-width: 480px) {
+                width: 75%;
+            }
         }
         .btn { 
             border: none; 
@@ -52,6 +55,9 @@
             color: #fff; 
             width: 20%; 
             float: left;
+            @media(max-width: 480px) {
+                width: 25%;
+            }
             &:hover { 
             }
         }

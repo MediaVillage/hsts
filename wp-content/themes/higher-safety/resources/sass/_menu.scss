@@ -4,11 +4,16 @@
     
     a {
         font-family: 'nexa_boldregular';
+        @media(max-width: 1200px) {
+            padding-left: 15px;
+            font-size: 13px;
+        }
+        &:hover {
+            color: $primary-color;
+        }
     }
 
-    &:hover {
-        color: $primary-color;
-    }
+
 
     .sub-menu {
         background: $primary-color;
@@ -79,6 +84,34 @@
             font-size: 15px !important;
             background: rgb(105,161,80) !important;
             background: linear-gradient(0deg, rgba(102,174,70,1) 0%, rgba(119,184,67,1) 50%) !important;
+        }
+    }
+}
+
+@media(max-width: $menu-breakpoint) {
+    #site-navigation {
+        background: transparent;
+        top: 122px;
+        box-shadow: none !important;
+        @media(max-width: 480px) {
+            top: 109px;
+        }
+        #primary-menu {
+            /*box-shadow: 0px 0 67px 0 rgb(20 20 20 / 30%);*/
+        }
+        a {
+            background: #69a150;
+            background: linear-gradient(0deg, #66ae46 0%, #77b843 100%);
+            color: #fff;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            &:hover {
+                color: $secondary-color;
+            }
+        }
+        .menu-expand {
+            background: transparent;
+            line-height: 45px;
         }
     }
 }

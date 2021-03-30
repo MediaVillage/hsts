@@ -1,7 +1,14 @@
 
+#page.menu-open {
+  right: 0;
+}
+
 .site-header {
   background: #fff;
   z-index: 2; 
+  @media(max-width: 992px) {
+    height: auto;
+  }
 
   a:hover {
     color: $secondary-color;
@@ -27,6 +34,10 @@
       .social-platform {
         margin-right: 15px;
         font-size: 25px;
+        @media(max-width: 480px) {
+          margin-right: 10px;
+          font-size: 15px;
+        }
       }
     }
 
@@ -36,6 +47,16 @@
       a {
         margin-left: 20px;
         font-size: 17px;
+        @media(max-width: 480px) {
+          margin-right: 5px;
+          font-size: 15px;
+        }
+      }
+    }
+
+    @media(max-width: 992px) {
+      .email {
+        display: none;
       }
     }
 
@@ -48,6 +69,9 @@
     align-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
+    @media(max-width: $menu-breakpoint) {
+      align-items: initial;
+    }
 
     &:before, &:after {
       display: none;
@@ -58,9 +82,16 @@
   .site-branding {
     position: relative;
     top: 0%;
+    left: 0 !important;
     transform: translateY(0%);
     img {
       max-height: 70px;
+      @media(max-width: 1200px) {
+        max-height: 50px;
+      }
+      @media(max-width: 480px) {
+        max-height: 40px;
+      }
     } 
 }
 
@@ -99,6 +130,15 @@
 
 } 
 
+@media(max-width: 480px) {
+  .search-button {
+    font-size: 0 !important;
+    i {
+      font-size: 18px;
+    }
+  }
+}
+
 #primary-menu a {
   color: $secondary-color;
   text-transform: uppercase;
@@ -110,5 +150,15 @@
 
 
 
-
+.mobile-menu-button {
+  position: relative;
+  margin: 0;
+  right: 0;
+  #menu-toggle {
+    background: $primary-color;
+    span {
+      background: #fff !important;
+    }
+  }
+}
 

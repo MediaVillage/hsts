@@ -17,6 +17,10 @@
 
 	.RFCarousel__item__inner {
 		padding: 0 60px;
+		@media(max-width: 480px) {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
 	}
 
 	.RFCarousel__item__title {
@@ -43,14 +47,24 @@
 	justify-content: center;
 	flex-wrap: wrap;
 	padding-top: 30px !important;
-	padding-bottom: 30px !important;
+	padding-bottom: 60px !important;
 	padding-left: 40px;
 	padding-right: 40px; 
 	/*border-bottom: 2px solid #d1d2d4;*/
+	@media(max-width: 480px) {
+		padding-top: 10px !important;
+		padding-bottom: 60px !important;
+		padding-left: 15px;
+		padding-right: 15px; 
+	}
 
 	.widget {
 		padding: 15px;
 		max-width: 100px;
+		@media(max-width: 480px) {
+			max-width: 80px;
+			padding: 10px; 
+		}
 	}
 }
 
@@ -67,10 +81,17 @@
   padding: 30px 0;
   font-size: 16px;
   line-height: 2em;
+  @media(max-width: 992px) {
+	  text-align: center;
+  }
   	.container {
 	  display: flex;
 	  justify-content: space-between;
 	  padding: 0;
+	  @media(max-width: 480px) {
+		  display: block;
+		  padding: 0 15px;
+	  }
 	}
 
 	a {
@@ -91,6 +112,11 @@
 			margin-top: -70px;
 			max-width: 100px !important;
 			height: auto !important;
+			@media(max-width: 1200px) {
+				margin-left: auto;
+				margin-right: auto;
+				display: table;
+			}
 		}
 	}
 
@@ -110,6 +136,9 @@
 		}
 		div.wpcf7 .ajax-loader {
 			position: absolute;
+			@media(max-width: 480px) {
+				position: relative;
+			}
 		}
 		.wpcf7-response-output {
 			background: #fff;
@@ -136,9 +165,15 @@
 
     .social-icons {
 		display: flex;
+		@media(max-width: 992px) {
+			justify-content: center;
+		}
 		.social-platform {
 		  margin-right: 15px;
 		  font-size: 25px;
+		  @media(max-width: 992px) {
+			margin: 0 10px;
+		}
 		}
 	  }
 
