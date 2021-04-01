@@ -11436,6 +11436,10 @@ a i {
   margin-right: 15px;
   font-size: 25px;
 }
+.site-header .header-top .social-icons .social-platform i {
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 400;
+}
 @media (max-width: 480px) {
   .site-header .header-top .social-icons .social-platform {
     margin-right: 10px;
