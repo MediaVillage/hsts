@@ -2,7 +2,7 @@
 Contributors: wpbean
 Tags: WordPress menu accordion, wordpress accordion, WordPress category accordion, wordpress accordion plugin, accordion wordpress, accordion plugin wordpress, collapsible menu jquery, accordion wordpress plugin, accordion widget wordpress, jquery menu accordion, accordion jquery menu, jquery sidebar menu, accordion menu wordpress, wordpress accordion menu plugin, accordion menu wordpress plugin, wordpress jquery accordion, wordpress category accordion, category accordion, woocommerce category accordion, ecommerce category accordion, wordpress collapse categories, Collapsing Categories List, Collapsing Categories, WooCommerce Collapsing Categories, wordpress accordion menu and category
 Requires at least: 4.5
-Tested up to: 5.6
+Tested up to: 5.7
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -233,5 +233,8 @@ You need to change a little bit of CSS code for that. or You can get the pro ver
 
 = version 1.3.9 =
 * Tested with WooCommerce 4.8.0 and WordPress 5.6
+
+= version 1.4.0 =
+* Tested with WooCommerce 5.0.0 and WordPress 5.6.1
 
 == Upgrade notice ==

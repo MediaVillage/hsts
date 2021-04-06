@@ -1069,7 +1069,7 @@ function cptui_manage_post_types() {
 										'custom-post-type-ui'
 									),
 									sprintf(
-										'<a href="http://codex.wordpress.org/Function_Reference/register_post_type#Parameters" target="_blank">%s</a>',
+										'<a href="https://developer.wordpress.org/reference/functions/register_post_type/#menu_position" target="_blank">%s</a>',
 										esc_html__( 'Available options', 'custom-post-type-ui' )
 									)
 								)
@@ -1955,7 +1955,6 @@ function cptui_process_post_type() {
 			add_filter( 'cptui_post_type_deleted', '__return_true' );
 		}
 
-		// @TODO Utilize anonymous function to admin_notice `$result` if it happens to error.
 		if ( $result ) {
 			if ( is_callable( "cptui_{$result}_admin_notice" ) ) {
 				add_action( 'admin_notices', "cptui_{$result}_admin_notice" );
