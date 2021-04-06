@@ -45,7 +45,7 @@
 					<div class="col-md-4 col-lg-2 footer-3">
 						<?php dynamic_sidebar( 'footer-3' ); ?>
 					</div>
-					<div class="col-md-4 col-lg-3 footer-4">
+					<div class="col-md-4 col-lg-4 footer-4">
 						<?php dynamic_sidebar( 'footer-4' ); ?> 
 					</div>					
 				</div>

@@ -11649,6 +11649,10 @@ a i {
     padding: 0 15px;
   }
 }
+.site-footer .social-icons i {
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 400;
+}
 .site-footer a {
   color: #fff;
   font-size: 14px;
@@ -11824,6 +11828,10 @@ html {
 
 .hide {
   display: none;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
 }
 
 .content-row {
